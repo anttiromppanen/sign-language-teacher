@@ -1,8 +1,8 @@
 "use client";
 
+import { FilesetResolver } from "@mediapipe/tasks-vision";
 import { useEffect, useRef } from "react";
 import Webcam from "react-webcam";
-import { FilesetResolver, HandLandmarker } from "@mediapipe/tasks-vision";
 
 export default function Home() {
   const cameraRef = useRef<Webcam | null>(null);
@@ -12,15 +12,6 @@ export default function Home() {
       // path/to/wasm/root
       "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/wasm"
     );
-    const handLandmarker = await HandLandmarker.createFromOptions(vision, {
-      baseOptions: {
-        modelAssetPath:
-          "/models/sign_gesture_recognizer/sign_gesture_recognizer.task",
-        delegate: "GPU",
-      },
-      numHands: 1,
-      runningMode: "VIDEO",
-    });
     return handLandmarker;
   }
 
