@@ -1,18 +1,20 @@
 "use client";
 
+import useGestureDetectionLoop from "@/hooks/useGestureDetectionLoop";
 import { FilesetResolver, GestureRecognizer } from "@mediapipe/tasks-vision";
 import { useEffect, useRef, useState } from "react";
 import Webcam from "react-webcam";
 
 export default function Home() {
+  const cameraRef = useRef<Webcam | null>(null);
+
   const [handRecognizerState, setHandRecognizerState] =
     useState<GestureRecognizer | null>(null);
-  const [currentGesture, setCurrentGesture] = useState<{
-    name: string;
-    probability: number;
-  } | null>(null);
-  const cameraRef = useRef<Webcam | null>(null);
-  const lastTime = useRef<number>(-1);
+
+  useGestureDetectionLoop({
+    handRecognizerState,
+    cameraRef,
+  });
 
   async function initializeHandLandmarker() {
     const vision = await FilesetResolver.forVisionTasks(
@@ -39,44 +41,6 @@ export default function Home() {
     }
   }, [handRecognizerState]);
 
-  useEffect(() => {
-    const interval = setInterval(async () => {
-      if (
-        !handRecognizerState ||
-        !cameraRef.current ||
-        !cameraRef.current.video
-      )
-        return;
-
-      const video = cameraRef.current.video;
-      const videoHeight = video.videoHeight;
-      const videoWidth = video.videoWidth;
-
-      if (videoHeight && videoWidth && video.readyState >= 2) {
-        const startTimeMs = performance.now();
-
-        if (lastTime.current !== video.currentTime) {
-          lastTime.current = video.currentTime;
-          const gesturePredictions = handRecognizerState.recognizeForVideo(
-            video,
-            startTimeMs
-          );
-
-          if (gesturePredictions.gestures.length) {
-            setCurrentGesture({
-              name: gesturePredictions.gestures[0][0].categoryName,
-              probability: gesturePredictions.gestures[0][0].score,
-            });
-          } else {
-            setCurrentGesture(null);
-          }
-        }
-      }
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, [handRecognizerState, currentGesture]);
-
   return (
     <div>
       <div className="relative bg-red-500 mx-auto w-fit">
@@ -91,16 +55,6 @@ export default function Home() {
           }}
           className="h-screen"
         />
-        <div className="absolute top-5 right-5 bg-black p-4 text-5xl bg-opacity-50 size-32 rounded-2xl">
-          {currentGesture?.name &&
-            currentGesture?.probability &&
-            currentGesture?.probability >= 0.5 && (
-              <>
-                <p>{currentGesture?.name}</p>
-                <p>{Math.floor(Number(currentGesture?.probability) * 100)}%</p>
-              </>
-            )}
-        </div>
       </div>
     </div>
   );
