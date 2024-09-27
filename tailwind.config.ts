@@ -8,9 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        alice: ["var(--font-alice)", "sans-serif"],
+        "playfair-display": ["var(--font-playfair-display)", "serif"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        "green-light": "var(--green-light)",
+        "green-semilight": "var(--green-semilight)",
+        "green-dark": "var(--green-dark)",
+        orange: "var(--orange)",
+        brown: "var(--brown)",
       },
     },
   },

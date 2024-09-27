@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Alice } from "next/font/google";
 import "./globals.css";
+import Appbar from "@/components/Appbar/page";
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body
         className={`${playfairDisplay.variable} ${alice.variable} antialiased`}
       >
+        <Appbar />
         {children}
       </body>
     </html>
