@@ -1,6 +1,6 @@
 "use client";
 
-import { getImageByCharacter } from "@/utils/getImageByCharacter";
+import { getImageByCharacterArray } from "@/utils/getImageByCharacter";
 import { useState } from "react";
 import Buttons from "./Buttons";
 import SlideshowItem from "./SlideshowItem";
@@ -10,7 +10,7 @@ function GestureSlideshow() {
   const [direction, setDirection] = useState(1);
 
   // imageObjects[0][0] = A, imageObjects[0][1] = image path
-  const imageObjects = Object.entries(getImageByCharacter);
+  const imageObjects = getImageByCharacterArray;
 
   const handlePrevImg = () => {
     setImgIndex(

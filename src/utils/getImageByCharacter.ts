@@ -26,3 +26,5 @@ export const getImageByCharacter = {
   Y: "/img/letter-Y-American-Sign-Language-ASL.webp",
   Z: "/img/letter-Z-American-Sign-Language-ASL.webp",
 };
+
+export const getImageByCharacterArray = Object.entries(getImageByCharacter);

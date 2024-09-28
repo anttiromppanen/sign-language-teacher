@@ -5,18 +5,19 @@
 import React, { useRef, useState } from "react";
 import Webcam from "react-webcam";
 import InitialLoadOverlay from "./InitialLoadOverlay";
-import { getImageByCharacter } from "@/utils/getImageByCharacter";
+import { getImageByCharacterArray } from "@/utils/getImageByCharacter";
+import ShowImageOverlay from "./ShowImageOverlay";
 
 function Training() {
   // const [round, setRound] = useState(0); // tracks number of rounds
   const [imgIndex, setImgIndex] = useState(0); // current image to show
 
-  const imageObjects = Object.entries(getImageByCharacter);
+  const imageObjects = getImageByCharacterArray;
 
   // overlay states
-  const [initialLoadOverlay] = useState(true); // screen overlay for initial load
-  const [gestureImageOverlay] = useState(false); // tracks the gesture learning image
-  const [successOverlay] = useState(false); // overlay if gesture is successful
+  const [initialLoadOverlay, setInitialLoadOverlay] = useState(true); // screen overlay for initial load
+  const [gestureImageOverlay, setGestureImageOverlay] = useState(false); // tracks the gesture learning image
+  const [successOverlay, setSuccessOverlay] = useState(false); // overlay if gesture is successful
 
   const cameraRef = useRef<Webcam | null>(null);
   // const handGestureRecognizer = useInitializeGestureRecognizer();
@@ -25,10 +26,30 @@ function Training() {
   //   cameraRef,
   // });
 
+  const handleShowImage = () => {
+    setInitialLoadOverlay(false);
+    setGestureImageOverlay(true);
+  };
+
+  const handleStartTraining = () => {
+    setInitialLoadOverlay(false);
+    setGestureImageOverlay(false);
+    setSuccessOverlay(false);
+  };
+
   return (
     <div>
       {initialLoadOverlay && (
-        <InitialLoadOverlay imageObject={imageObjects[imgIndex]} />
+        <InitialLoadOverlay
+          imageObject={imageObjects[imgIndex]}
+          handleClick={handleShowImage}
+        />
+      )}
+      {gestureImageOverlay && (
+        <ShowImageOverlay
+          imageObject={imageObjects[imgIndex]}
+          handleClick={handleStartTraining}
+        />
       )}
       {!initialLoadOverlay && !gestureImageOverlay && !successOverlay && (
         <Webcam
