@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        sm: "470px",
+      },
       fontFamily: {
         alice: ["var(--font-alice)", "sans-serif"],
         "playfair-display": ["var(--font-playfair-display)", "serif"],

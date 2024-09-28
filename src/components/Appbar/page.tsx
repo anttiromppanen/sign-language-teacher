@@ -2,7 +2,7 @@ import React from "react";
 
 function Appbar() {
   return (
-    <div className="fixed left-0 py-4 px-6 flex justify-between top-0 w-full items-center bg-green-semilight text-white">
+    <div className="py-4 px-6 flex justify-between w-full items-center bg-green-semilight text-white">
       <h1 className="text-2xl">Sign Teacher</h1>
       <button
         type="button"
