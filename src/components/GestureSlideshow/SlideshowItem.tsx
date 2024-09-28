@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
+import { GestureImageAnimated } from "../GestureImage";
 
 const variants = {
   enter: (direction: number) => {
@@ -68,31 +68,15 @@ function SlideshowItem({
         }}
         className="relative w-full h-full overflow-hidden z-10"
       >
-        <motion.h2
-          key={imageObjects[imgIndex][0]}
-          custom={direction}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
+        <GestureImageAnimated
+          imgIndex={imgIndex}
+          direction={direction}
+          imageObjects={imageObjects}
+          animationVariants={variants}
           transition={{
             x: { type: "keyframes", duration: 0.2 },
             opacity: { duration: 0.2 },
           }}
-          className="text-6xl sm:text-8xl absolute z-10 top-2 left-5 sm:top-5 sm:left-10 text-green-dark select-none"
-        >
-          {imageObjects[imgIndex][0]}
-        </motion.h2>
-        <Image
-          key={imageObjects[imgIndex][1]}
-          src={imageObjects[imgIndex][1]}
-          alt="gesture"
-          width={900}
-          height={675}
-          sizes="(max-width: 640px) 25vw, (min-width: 641px) 50vw, (min-width: 1024px) 450px, 600px"
-          priority
-          draggable={false}
-          className="md:w-[450px] md:h-[377.5px] lg:w-[600px] lg:h-[450px] object-cover border-8 border-foreground"
         />
       </motion.div>
     </AnimatePresence>

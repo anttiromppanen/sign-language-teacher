@@ -5,9 +5,13 @@
 import React, { useRef, useState } from "react";
 import Webcam from "react-webcam";
 import InitialLoadOverlay from "./InitialLoadOverlay";
+import { getImageByCharacter } from "@/utils/getImageByCharacter";
 
 function Training() {
   // const [round, setRound] = useState(0); // tracks number of rounds
+  const [imgIndex, setImgIndex] = useState(0); // current image to show
+
+  const imageObjects = Object.entries(getImageByCharacter);
 
   // overlay states
   const [initialLoadOverlay] = useState(true); // screen overlay for initial load
@@ -23,7 +27,9 @@ function Training() {
 
   return (
     <div>
-      {initialLoadOverlay && <InitialLoadOverlay />}
+      {initialLoadOverlay && (
+        <InitialLoadOverlay imageObject={imageObjects[imgIndex]} />
+      )}
       {!initialLoadOverlay && !gestureImageOverlay && !successOverlay && (
         <Webcam
           ref={cameraRef}
