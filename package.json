@@ -16,6 +16,7 @@
     "framer-motion": "^11.9.0",
     "next": "14.2.13",
     "react": "^18",
+    "react-countdown-circle-timer": "^3.2.1",
     "react-dom": "^18",
     "react-webcam": "^7.2.0"
   },

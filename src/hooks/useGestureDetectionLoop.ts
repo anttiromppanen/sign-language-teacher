@@ -1,4 +1,7 @@
-import { GestureRecognizer } from "@mediapipe/tasks-vision";
+import {
+  GestureRecognizer,
+  GestureRecognizerResult,
+} from "@mediapipe/tasks-vision";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import Webcam from "react-webcam";
 
@@ -13,10 +16,9 @@ function useGestureDetectionLoop({
 }: useGestureDetectionLoopProps) {
   const lastTime = useRef<number>(-1);
 
-  const [currentGesture, setCurrentGesture] = useState<{
-    name: string;
-    probability: number;
-  } | null>(null);
+  const [currentGesture, setCurrentGesture] = useState<
+    GestureRecognizerResult["gestures"][0][0] | null
+  >(null);
 
   useEffect(() => {
     const interval = setInterval(async () => {
@@ -40,20 +42,20 @@ function useGestureDetectionLoop({
             video,
             startTimeMs
           );
-          console.log(
-            gesturePredictions.gestures.length &&
-              gesturePredictions.gestures[0][0]
+          setCurrentGesture(
+            gesturePredictions.gestures.length
+              ? gesturePredictions.gestures[0][0]
+              : null
           );
         }
       }
     }, 100);
 
     return () => clearInterval(interval);
-  }, [handRecognizerState, cameraRef]);
+  }, [handRecognizerState, cameraRef, setCurrentGesture]);
 
   return {
     currentGesture,
-    setCurrentGesture,
   };
 }
 
