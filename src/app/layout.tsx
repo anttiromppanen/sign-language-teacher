@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { Playfair_Display, Alice } from "next/font/google";
-import "./globals.css";
 import Appbar from "@/components/Appbar/page";
+import type { Metadata } from "next";
+import { Alice, Playfair_Display } from "next/font/google";
+import "./globals.css";
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
