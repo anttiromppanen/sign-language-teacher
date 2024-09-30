@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-    --background: #F5ECD7;
+    --background: white;
     --foreground: #353535;
-    --green-light: #8FBF9F;
-    --green-semilight: #68a67d;
-    --green-dark: #24613b;
-    --orange: #F18F01;
-    --brown: #833500;
+    --secondary-pink: #f5baba;
+    --secondary-purple: #f2bbf2;
+    --secondary-blue: #bbc1f3;
+    --secondary-green: #bcf3c7;
+    --secondary-yellow: #f0f2bb;
 }
 
 body {
@@ -25,5 +25,37 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .border-on-top-green {
+    position: relative;
+    display: inline-block;
+  }
+        
+  .border-on-top-green::before {
+    content: '';
+    position: absolute;
+    bottom: 10px; /* Adjust this value to position the line */
+    left: 0;
+    width: 100%;
+    height: 30px; /* Height of the border */
+    z-index: -1;
+    background-color: var(--secondary-green); /* Color of the border */
+  }
+
+  .border-on-top-purple {
+    position: relative;
+    display: inline-block;
+  }
+        
+  .border-on-top-purple::before {
+    content: '';
+    position: absolute;
+    bottom: 10px; /* Adjust this value to position the line */
+    left: 0;
+    width: 100%;
+    height: 30px; /* Height of the border */
+    z-index: -1;
+    background-color: var(--secondary-purple); /* Color of the border */
   }
 }
