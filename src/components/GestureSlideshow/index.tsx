@@ -25,7 +25,7 @@ function GestureSlideshow() {
   };
 
   return (
-    <section className="relative md:px-20 overflow-hidden">
+    <section className="relative md:px-20 w-fit overflow-hidden">
       <div className="overflow-hidden">
         <SlideshowItem
           imgIndex={imgIndex}

@@ -1,5 +1,5 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/16/solid";
-import { ReactNode } from "react";
+import { ReactNode, useCallback, useEffect } from "react";
 
 function SlideshowButton({
   handleClick,
@@ -13,8 +13,8 @@ function SlideshowButton({
       type="button"
       onClick={handleClick}
       className="
-      rounded-full size-14 border-green-dark border-4 text-green-dark text-xl focus-within:outline-2 flex items-center justify-center 
-      hover:bg-green-dark hover:text-white select-none focus-visible:border-orange focus-visible:outline-0 focus-visible:text-orange"
+      rounded-full size-14 border-foreground border-4 text-foreground text-xl focus-within:outline-2 flex items-center justify-center 
+      hover:bg-foreground hover:text-white select-none focus-visible:-border--secondary-purple focus-visible:outline-0"
     >
       {children}
     </button>
@@ -27,6 +27,19 @@ interface ButtonsProps {
 }
 
 function Buttons({ handlePrevImg, handleNextImg }: ButtonsProps) {
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") handlePrevImg();
+      if (e.key === "ArrowRight") handleNextImg();
+    },
+    [handlePrevImg, handleNextImg]
+  );
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleKeyDown]);
+
   return (
     <div
       aria-label="buttons for previous and next image"

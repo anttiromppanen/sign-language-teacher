@@ -17,7 +17,7 @@ function ShowImageOverlay({
       <GestureImageStatic imgLetter={letter} imgUrl={imgUrl} />
       <button
         type="button"
-        className="mt-8 rounded-md bg-green-semilight py-4 px-8 text-background text-4xl col-span-2 hover:brightness-110"
+        className="mt-8 rounded-md -bg--secondary-pink py-4 px-8 text-background text-4xl col-span-2 hover:brightness-110"
         onClick={handleClick}
       >
         I&lsquo;m ready!
