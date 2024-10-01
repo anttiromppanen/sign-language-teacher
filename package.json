@@ -21,6 +21,7 @@
     "react-webcam": "^7.2.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.47.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
