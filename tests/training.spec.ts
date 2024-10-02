@@ -12,7 +12,9 @@ test.describe("/training", () => {
     await page.click("text=Start learning now!");
     await page.getByTestId("image-overlay-button").click();
 
-    const cameraErrorElement = page.getByText("Error: No camera detected");
+    const cameraErrorElement = page.getByRole("heading", {
+      name: "Error: No camera detected",
+    });
     await expect(cameraErrorElement).toBeVisible(); // Ensure that the CameraError component appears
   });
 });
