@@ -15,6 +15,7 @@ test.describe("/training", () => {
     const cameraErrorElement = page.getByRole("heading", {
       name: "Error: No camera detected",
     });
+
     await expect(cameraErrorElement).toBeVisible(); // Ensure that the CameraError component appears
   });
 });
