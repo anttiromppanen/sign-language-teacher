@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sign Language Teacher
 
-## Getting Started
+![GitHub last commit](https://img.shields.io/github/last-commit/anttiromppanen/fm-personal-finance?logo=github)
+![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/anttiromppanen/fm-personal-finance)
 
-First, run the development server:
+Web application using custom trained MediaPipe Gesture Recognizer to detect American Sign Language (ASL) alphabets via webcam, or other on-device camera. Camera feed and the gesture calculations are done in user's browser, which makes it safe to use from user's perspective. Requires camera access allowed for the training tool to work.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Usage
+Consists on image carousel of the ASL alphabet on /alphabet and the main ASL training tool on /training.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Current features
+- Image carousel of the American Sign Language (ASL) alphabet
+- Live training tool via camera
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech stack
+### General
+- React, Next.js, Nodev21.6.0, Typescript, React-webcam
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Gesture detection
+- MediaPipe, Tensorflow
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Linting
+- Eslint, Prettier
