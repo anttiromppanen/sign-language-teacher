@@ -12,15 +12,15 @@ function InitialLoadOverlay({
   return (
     <div className="flex flex-col justify-center items-center w-full h-full">
       <div className="max-w-5xl md:grid md:mt-10 items-center gap-x-6 px-4 py-12 grid-cols-2">
-        <h2 className="text-6xl mb-8 md:hidden">
+        <h2 className="text-6xl mb-8 md:hidden font-alice">
           Sign language gesture training
         </h2>
         <GestureImageStatic imgLetter={letter} imgUrl={imgUrl} />
         <div className="flex flex-col justify-center">
-          <h2 className="text-6xl lg:text-7xl hidden md:block">
+          <h2 className="text-6xl lg:text-7xl hidden md:block font-alice">
             Sign language gesture training
           </h2>
-          <h3 className="text-2xl mt-8 md:mt-4">
+          <h3 className="text-xl mt-8 md:mt-4 font-playfair-display">
             Learn by doing, you are shown images of sign language alphabet
             characters, and then you can learn by doing with on device camera
             and the power of AI.

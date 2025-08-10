@@ -4,7 +4,9 @@ import React from "react";
 function Appbar() {
   return (
     <div className="py-4 px-6 flex justify-between w-full items-center -bg--secondary-blue text-white max-w-[1500px] mx-auto rounded-b-xl">
-      <h1 className="text-2xl">signer</h1>
+      <Link href="/" className="text-2xl">
+        signer
+      </Link>
       <ul className="flex gap-x-4">
         <li>
           <Link
