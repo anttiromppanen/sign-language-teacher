@@ -10,6 +10,8 @@ import InitialLoadOverlay from "./InitialLoadOverlay";
 import ShowImageOverlay from "./ShowImageOverlay";
 import SuccessOverlay from "./SuccessOverlay";
 import CameraError from "./CameraError";
+import CorrectGestureOverlay from "./CorrectGestureOverlay";
+import { AnimatePresence } from "framer-motion";
 
 function Training() {
   // const [round, setRound] = useState(0); // tracks number of rounds
@@ -23,6 +25,7 @@ function Training() {
   const [initialLoadOverlay, setInitialLoadOverlay] = useState(true); // screen overlay for initial load
   const [gestureImageOverlay, setGestureImageOverlay] = useState(false); // tracks the gesture learning image
   const [successOverlay, setSuccessOverlay] = useState(false); // overlay if gesture is successful
+  const [correctGestureOverlay, setCorrectGestureOverlay] = useState(false); // short overlay to let user know gesture was correct
 
   // webcam ref, hand gesture recognizer
   const cameraRef = useRef<Webcam | null>(null);
@@ -44,7 +47,7 @@ function Training() {
   };
 
   const handleCorrectGesture = () => {
-    setSuccessOverlay(true);
+    setCorrectGestureOverlay(true);
     setImgIndex((prev) => (prev + 1) % imageObjects.length);
   };
 
@@ -104,6 +107,13 @@ function Training() {
                 </CountdownCircleTimer>
               </div>
             )}
+            <AnimatePresence onExitComplete={() => setSuccessOverlay(true)}>
+              {correctGestureOverlay && (
+                <CorrectGestureOverlay
+                  setCorrectGestureOverlay={setCorrectGestureOverlay}
+                />
+              )}
+            </AnimatePresence>
             <Webcam
               ref={cameraRef}
               audio={false}

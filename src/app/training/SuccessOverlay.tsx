@@ -8,7 +8,7 @@ function SuccessOverlay({
   handleClick: () => void;
 }) {
   return (
-    <div className="absolute flex-col gap-y-6 left-0 top-0 w-full h-screen flex items-center justify-center text-7xl">
+    <div className="absolute flex-col gap-y-6 left-0 top-0 w-full h-screen flex items-center justify-center text-7xl -z-10">
       <h2 className="font-alice">Good job!</h2>
       <GestureImageStatic imgLetter={imageObject[0]} imgUrl={imageObject[1]} />
       <button
