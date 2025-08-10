@@ -6,11 +6,13 @@ import "./globals.css";
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair-display",
+  display: "swap",
 });
 const alice = Alice({
   subsets: ["cyrillic", "latin"],
   weight: "400",
   variable: "--font-alice",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,10 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${playfairDisplay.variable} ${alice.variable} antialiased`}
-      >
+    <html lang="en" className={`${playfairDisplay.variable} ${alice.variable}`}>
+      <body className={`antialiased`}>
         <Appbar />
         {children}
       </body>

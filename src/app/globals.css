@@ -3,23 +3,18 @@
 @tailwind utilities;
 
 :root {
-    --background: white;
-    --foreground: #353535;
-    --secondary-pink: #f5baba;
-    --secondary-purple: #f2bbf2;
-    --secondary-blue: #bbc1f3;
-    --secondary-green: #bcf3c7;
-    --secondary-yellow: #f0f2bb;
+  --background: white;
+  --foreground: #353535;
+  --secondary-pink: #f5baba;
+  --secondary-purple: #f2bbf2;
+  --secondary-blue: #bbc1f3;
+  --secondary-green: #bcf3c7;
+  --secondary-yellow: #f0f2bb;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-alice), serif;
-}
-
-.playfair-font {
-  font-family: var(--font-playfair-display), sans-serif;
 }
 
 @layer utilities {
@@ -31,9 +26,9 @@ body {
     position: relative;
     display: inline-block;
   }
-        
+
   .border-on-top-green::before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 10px; /* Adjust this value to position the line */
     left: 0;
@@ -47,9 +42,9 @@ body {
     position: relative;
     display: inline-block;
   }
-        
+
   .border-on-top-purple::before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 10px; /* Adjust this value to position the line */
     left: 0;
