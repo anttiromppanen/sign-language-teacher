@@ -3,13 +3,13 @@ import React from "react";
 
 function Appbar() {
   return (
-    <div className="py-4 px-6 flex justify-between w-full items-center -bg--secondary-blue text-white">
-      <h1 className="text-2xl">Signer</h1>
+    <div className="py-4 px-6 flex justify-between w-full items-center -bg--secondary-blue text-white max-w-[1500px] mx-auto rounded-b-xl">
+      <h1 className="text-2xl">signer</h1>
       <ul className="flex gap-x-4">
         <li>
           <Link
             href="/alphabet"
-            className="bg-white text-foreground rounded-md px-2 text-xl tracking-wider"
+            className="rounded-md px-4 tracking-wider py-2 hover:underline underline-offset-8"
           >
             Alphabet
           </Link>
@@ -17,7 +17,7 @@ function Appbar() {
         <li>
           <Link
             href="/training"
-            className="bg-white text-foreground rounded-md px-2 text-xl tracking-wider"
+            className="rounded-md px-4 py-2 tracking-wider hover:underline underline-offset-8"
           >
             Training
           </Link>
