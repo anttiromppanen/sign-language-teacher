@@ -7,9 +7,11 @@ const parentVariants = {
   initial: {
     height: 0,
     width: "100vw",
+    opacity: 0,
   },
   animate: {
     height: "100vh",
+    opacity: 0.7,
     transition: {
       delay: 0.5,
       duration: 0.8,
@@ -18,6 +20,7 @@ const parentVariants = {
   },
   exit: {
     height: 0,
+    opacity: 0,
     transition: {
       delay: 2,
       duration: 0.8,
