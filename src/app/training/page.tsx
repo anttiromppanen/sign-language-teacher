@@ -86,8 +86,8 @@ function Training() {
         !gestureImageOverlay &&
         !successOverlay &&
         !isCameraError && (
-          <div className="relative">
-            <div className="bg-foreground text-background absolute left-10 top-10 z-10 text-7xl px-2">
+          <div className="absolute left-0 top-0 -z-10">
+            <div className="bg-foreground text-background absolute left-10 bottom-10 z-10 text-7xl px-4 py-2 rounded-xl opacity-90">
               {imageObjects[imgIndex][0]}
             </div>
             {correctGesture && (
