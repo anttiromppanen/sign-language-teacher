@@ -80,7 +80,7 @@ function CorrectGestureOverlay({
           className="flex flex-col justify-center items-center gap-y-8 p-20 h-[500px] w-[500px]"
         >
           <h1 className="text-foreground text-9xl font-alice">Success!</h1>
-          <Image src={successGif} alt="Success" />
+          <Image src={successGif} alt="Success" priority />
         </motion.div>
       )}
     </motion.div>

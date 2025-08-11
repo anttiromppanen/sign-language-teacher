@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
+import personIllustration from "../../public/img/Uploading-amico.svg";
 
 function FirstSection() {
   const imgTargetRef = useRef<HTMLImageElement>(null);
@@ -61,7 +62,7 @@ function FirstSection() {
         style={{ opacity: changeOpacity }}
         className="h-full w-full relative"
       >
-        <Image src="/img/Uploading-amico.svg" fill={true} alt="" priority />
+        <Image src={personIllustration} fill={true} alt="" priority />
       </motion.div>
     </div>
   );
