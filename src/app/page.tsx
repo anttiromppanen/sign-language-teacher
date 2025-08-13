@@ -31,7 +31,7 @@ function FirstSection() {
         >
           <Link
             href="/training"
-            className="font-source_sans py-4 px-6 rounded-xl -bg--secondary-blue"
+            className="font-source_sans py-4 px-6 rounded-xl bg-blue-800 text-xl text-white"
           >
             Start training
           </Link>
@@ -45,7 +45,10 @@ export default function Home() {
   return (
     <div>
       <div className="">
-        <video
+        <motion.video
+          initial={{ filter: "blur(5px)", scale: 1.1 }}
+          animate={{ filter: "blur(0px)", scale: 1 }}
+          transition={{ delay: 3.5, duration: 0.3 }}
           autoPlay
           loop
           muted
@@ -55,12 +58,9 @@ export default function Home() {
           <source src="/img/hand_ai.mp4" type="video/mp4" />
         {/* Optional fallback image */}
         Your browser does not support the video tag.
-        </video>
+        </motion.video>
         <motion.div 
-          initial={{ opacity: 0.2, filter: "blur(0px)" }}
-          animate={{ opacity: 0.8, filter: "blur(100px)" }}
-          transition={{ duration: 4, type: "spring" }}
-          className="w-full h-full bg-black/80 absolute top-0 left-0 -z-10" 
+          className="w-full h-full bg-black/50 absolute top-0 left-0 -z-10" 
         />
       </div>
       <FirstSection />
