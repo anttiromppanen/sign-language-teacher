@@ -9,6 +9,7 @@
 
 ## 🎨 Polish
 
+- [ ] Redo landing page styling
 - [ ] Change color palette
 - [ ] Finish /alphabet styling
 - [ ] Finish /training styling
