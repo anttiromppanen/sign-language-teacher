@@ -1,17 +1,17 @@
 import Appbar from "@/components/Appbar/page";
 import type { Metadata } from "next";
-import { Alice, Playfair_Display } from "next/font/google";
+import { Oxanium, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
-const playfairDisplay = Playfair_Display({
+const source_sans = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-playfair-display",
+  variable: "--font-source_sans_3",
   display: "swap",
 });
-const alice = Alice({
-  subsets: ["cyrillic", "latin"],
+const oxanium = Oxanium({
+  subsets: ["latin"],
   weight: "400",
-  variable: "--font-alice",
+  variable: "--font-oxanium",
   display: "swap",
 });
 
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfairDisplay.variable} ${alice.variable}`}>
+    <html lang="en" className={`${source_sans.variable} ${oxanium.variable}`}>
       <body className={`antialiased`}>
         <Appbar />
         {children}

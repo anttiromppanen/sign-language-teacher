@@ -12,8 +12,8 @@ const config: Config = {
         sm: "470px",
       },
       fontFamily: {
-        alice: ["var(--font-alice)", "sans-serif"],
-        "playfair-display": ["var(--font-playfair-display)", "serif"],
+        oxanium: ["var(--font-oxanium)", "sans-serif"],
+        source_sans: ["var(--font-source_sans_3)", "serif"],
       },
       colors: {
         background: "var(--background)",

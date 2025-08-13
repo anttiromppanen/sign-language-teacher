@@ -9,10 +9,11 @@
 
 ## 🎨 Polish
 
-- [ ] Redo landing page styling
+- [ ] Change fonts on /alphabet & /training
 - [ ] Change color palette
 - [ ] Finish /alphabet styling
 - [ ] Finish /training styling
+- [ ] Optimize small screen landing page animation
 - [ ] Finish SuccessOverlay styling
 - [ ] Tablet view styling
 - [ ] Mobile view styling

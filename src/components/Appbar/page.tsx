@@ -3,7 +3,7 @@ import React from "react";
 
 function Appbar() {
   return (
-    <div className="py-4 px-6 flex justify-between w-full items-center -bg--secondary-blue text-white max-w-[1500px] mx-auto rounded-b-xl">
+    <div className="py-4 px-6 flex justify-between w-full items-center bg-white/5 text-white max-w-[1500px] mx-auto rounded-b-xl">
       <Link href="/" className="text-2xl">
         signer
       </Link>
