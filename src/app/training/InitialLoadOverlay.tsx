@@ -52,7 +52,7 @@ function InitialLoadOverlay({
   handleClick: () => void;
 }) {
   const { isCameraDetected } = useDetectCamera();
-  const [activeStep, setActiveStep] = useState<"camera" | "model">("camera");
+  const [activeStep] = useState<"camera" | "model">("camera");
 
   return (
     <div className="w-full h-full max-w-[1500px] mx-auto">
