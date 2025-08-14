@@ -75,7 +75,7 @@ export default function Home() {
         Your browser does not support the video tag.
         </motion.video>
         <motion.div 
-          className="w-full h-full bg-black/50 absolute top-0 left-0 -z-10" 
+          className="w-full h-full bg-background opacity-70 absolute top-0 left-0 -z-10" 
         />
       </div>
       <FirstSection />

@@ -17,6 +17,14 @@ body {
   background: var(--background);
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-oxanium);
+}
+
+p, span, a, button {
+  font-family: var(--font-source_sans_3);
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
