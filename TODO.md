@@ -24,7 +24,7 @@
 ### /training
 - [ ] Finish checkmarks list
   - [ ] UI v1.0
-  - [ ] Camera check ui & logic
+  - [ ] Camera check ui
   - [ ] Model loading ui & logic
   - [ ] Store results to sessionStorage
   - [ ] Disable call to action button until list above is true
