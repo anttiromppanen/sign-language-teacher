@@ -59,7 +59,7 @@ function InitialLoadOverlay({
 	const { isCameraDetected } = useDetectCamera();
 	const [gestureLoadError, setGestureLoadError] = useState("");
 	const [activeStep, setActiveStep] = useState<"camera" | "model" | "finished">(
-		"model",
+		"camera",
 	);
 
 	useEffect(() => {
