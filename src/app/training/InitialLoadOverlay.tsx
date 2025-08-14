@@ -1,34 +1,57 @@
-import { GestureImageStatic } from "@/components/GestureImage";
+"use client";
+
+import { useEffect } from "react";
 
 function InitialLoadOverlay({
-  imageObject,
   handleClick,
 }: {
-  imageObject: [string, string];
   handleClick: () => void;
 }) {
-  const [letter, imgUrl] = imageObject;
+  useEffect(() => {
+    async function checkCamera() {
+      try {
+        if (!navigator.mediaDevices?.enumerateDevices) {
+          console.log("No camera for sure");
+          return;
+        }
+
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const videoInputs = devices.filter(device => device.kind === "videoinput");
+        console.log(videoInputs)
+      } catch (err) {
+        console.error("Error checking camera:", err);
+      }
+    }
+
+    checkCamera();
+  }, [])
 
   return (
-    <div className="flex flex-col justify-center items-center w-full h-full">
-      <div className="max-w-5xl md:grid md:mt-10 items-center gap-x-6 px-4 py-12 grid-cols-2">
-        <h2 className="text-6xl mb-8 md:hidden font-alice">
-          Sign language gesture training
-        </h2>
-        <GestureImageStatic imgLetter={letter} imgUrl={imgUrl} />
-        <div className="flex flex-col justify-center">
-          <h2 className="text-6xl lg:text-7xl hidden md:block font-alice">
-            Sign language gesture training
-          </h2>
-          <h3 className="text-xl mt-8 md:mt-4 font-playfair-display">
-            Learn by doing, you are shown images of sign language alphabet
-            characters, and then you can learn by doing with on device camera
-            and the power of AI.
-          </h3>
-        </div>
+    <div className="w-full h-full max-w-[1500px] mx-auto">
+      <div className="mt-10 flex flex-col gap-y-10">
+        <h1 className="text-5xl">
+          Before we get started
+        </h1>
+        <ol className="flex pl-6 flex-col gap-y-2">
+          <li className="flex gap-x-2">
+            <span className="font-oxanium text-xl">1.</span>
+            <div className="">
+              <h2 className="text-xl">Device with a camera</h2>
+              <p className="text-white/60">Make sure your device has a camera (i.e. Webcam or front-facing camera on a phone).</p>
+            </div>
+          </li>
+
+          <li className="flex gap-x-2">
+            <span className="font-oxanium text-xl">2.</span>
+            <div className="">
+              <h2 className="text-xl">Load model</h2>
+              <p className="text-white/60">Wait for machine learning model to load.</p>
+            </div>
+          </li>
+        </ol>
         <button
           type="button"
-          className="mt-8 rounded-md -bg--secondary-pink py-4 px-8 text-white text-4xl col-span-2 hover:brightness-110"
+          className="rounded-md -bg--secondary-pink py-4 px-8 text-white text-4xl col-span-2 hover:brightness-110"
           onClick={handleClick}
         >
           Start learning now!

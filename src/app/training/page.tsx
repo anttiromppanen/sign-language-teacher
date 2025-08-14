@@ -69,7 +69,6 @@ function Training() {
       {isCameraError && <CameraError />}
       {initialLoadOverlay && (
         <InitialLoadOverlay
-          imageObject={imageObjects[imgIndex]}
           handleClick={handleShowImage}
         />
       )}
