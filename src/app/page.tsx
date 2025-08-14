@@ -12,6 +12,7 @@ function FirstSection() {
     // Show typed effect after hydration
     setShowTyped(true);
   }, []);
+
   return (
     <div className="w-full items-center h-[calc(100vh-64px)] gap-x-4 px-8 max-w-[1560px] mx-auto">
       <div className="flex flex-col justify-center items-center gap-y-8 h-full text-center">

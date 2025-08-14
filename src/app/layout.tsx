@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${source_sans.variable} ${oxanium.variable}`}>
-      <body className={`antialiased bg-[#1A1C2E]`}>
+      <body className={`antialiased bg-background`}>
         <Appbar />
         {children}
       </body>

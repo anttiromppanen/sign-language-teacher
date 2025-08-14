@@ -7,6 +7,8 @@
 
 ## 🐛 Bugs
 
+- [ ] CSS filters removes letters from some ASL gesture images
+
 ## 🎨 Polish
 
 - [ ] Change fonts on /alphabet & /training
