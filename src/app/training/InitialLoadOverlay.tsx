@@ -57,7 +57,7 @@ function InitialLoadOverlay({
 	setHandRecognizerState: Dispatch<SetStateAction<GestureRecognizer | null>>;
 }) {
 	const { isCameraDetected } = useDetectCamera();
-	const [activeStep] = useState<"camera" | "model">("camera");
+	const [activeStep, setActiveStep] = useState<"camera" | "model">("camera");
 
 	useEffect(() => {
 		if (activeStep === "model") {
@@ -67,6 +67,12 @@ function InitialLoadOverlay({
 			})();
 		}
 	}, [activeStep, setHandRecognizerState]);
+
+	useEffect(() => {
+		if (isCameraDetected) {
+			setActiveStep("model");
+		}
+	}, [isCameraDetected]);
 
 	return (
 		<div className="w-full h-full max-w-[1500px] mx-auto">
