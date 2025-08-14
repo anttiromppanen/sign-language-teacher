@@ -13,6 +13,7 @@
 - [ ] Change color palette
 - [ ] Finish /alphabet styling
 - [ ] Finish /training styling
+- [ ] Remove landing page header placeholder for fast connections
 - [ ] Optimize small screen landing page animation
 - [ ] Finish SuccessOverlay styling
 - [ ] Tablet view styling

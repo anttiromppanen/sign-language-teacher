@@ -7,12 +7,14 @@ const source_sans = Source_Sans_3({
   subsets: ["latin"],
   variable: "--font-source_sans_3",
   display: "swap",
+  preload: true,
 });
 const oxanium = Oxanium({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-oxanium",
   display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -27,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${source_sans.variable} ${oxanium.variable}`}>
-      <body className={`antialiased`}>
+      <body className={`antialiased bg-[#1A1C2E]`}>
         <Appbar />
         {children}
       </body>
