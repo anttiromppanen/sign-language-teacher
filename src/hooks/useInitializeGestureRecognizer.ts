@@ -21,6 +21,7 @@ function useInitializeGestureRecognizer() {
 		return handRecognizer;
 	}
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: false positive
 	useEffect(() => {
 		if (!handRecognizerState) {
 			(async () => {

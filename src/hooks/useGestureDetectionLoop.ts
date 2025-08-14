@@ -1,9 +1,9 @@
-import {
+import type {
 	GestureRecognizer,
 	GestureRecognizerResult,
 } from "@mediapipe/tasks-vision";
-import { MutableRefObject, useEffect, useRef, useState } from "react";
-import Webcam from "react-webcam";
+import { type MutableRefObject, useEffect, useRef, useState } from "react";
+import type Webcam from "react-webcam";
 
 interface useGestureDetectionLoopProps {
 	handRecognizerState: GestureRecognizer | null;

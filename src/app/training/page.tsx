@@ -1,5 +1,6 @@
 "use client";
 
+import type { GestureRecognizer } from "@mediapipe/tasks-vision";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
@@ -29,9 +30,12 @@ function Training() {
 
 	// webcam ref, hand gesture recognizer
 	const cameraRef = useRef<Webcam | null>(null);
-	const handGestureRecognizer = useInitializeGestureRecognizer();
+	const [handRecognizerState, setHandRecognizerState] =
+		useState<GestureRecognizer | null>(null);
+	// const handGestureRecognizer = useInitializeGestureRecognizer();
 	const { currentGesture } = useGestureDetectionLoop({
-		handRecognizerState: handGestureRecognizer,
+		// handRecognizerState: handGestureRecognizer,
+		handRecognizerState,
 		cameraRef,
 	});
 
@@ -68,7 +72,10 @@ function Training() {
 		<div className="">
 			{isCameraError && <CameraError />}
 			{initialLoadOverlay && (
-				<InitialLoadOverlay handleClick={handleShowImage} />
+				<InitialLoadOverlay
+					handleClick={handleShowImage}
+					setHandRecognizerState={setHandRecognizerState}
+				/>
 			)}
 			{gestureImageOverlay && (
 				<ShowImageOverlay
