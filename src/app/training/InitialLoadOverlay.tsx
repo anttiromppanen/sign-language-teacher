@@ -1,23 +1,25 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function InitialLoadOverlay({
   handleClick,
 }: {
   handleClick: () => void;
 }) {
+  const [isCameraDetected, setIsCameraDetected] = useState<boolean | undefined>(undefined);
+
   useEffect(() => {
     async function checkCamera() {
       try {
         if (!navigator.mediaDevices?.enumerateDevices) {
-          console.log("No camera for sure");
+          setIsCameraDetected(false);
           return;
         }
 
         const devices = await navigator.mediaDevices.enumerateDevices();
         const videoInputs = devices.filter(device => device.kind === "videoinput");
-        console.log(videoInputs)
+        setIsCameraDetected(videoInputs.length > 0);
       } catch (err) {
         console.error("Error checking camera:", err);
       }
@@ -33,11 +35,15 @@ function InitialLoadOverlay({
           Before we get started
         </h1>
         <ol className="flex pl-6 flex-col gap-y-2">
-          <li className="flex gap-x-2">
+          <li className={`flex gap-x-2 ${isCameraDetected === false && "opacity-50"}`}>
             <span className="font-oxanium text-xl">1.</span>
             <div className="">
-              <h2 className="text-xl">Device with a camera</h2>
-              <p className="text-white/60">Make sure your device has a camera (i.e. Webcam or front-facing camera on a phone).</p>
+              <h2 className="text-xl">
+                {isCameraDetected === undefined ? "Device with a camera" : "No camera detected"}
+              </h2>
+              <p className="text-white/60">
+                Make sure your device has a camera (i.e. Webcam or front-facing camera on a phone).
+              </p>
             </div>
           </li>
 
