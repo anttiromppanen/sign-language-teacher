@@ -26,6 +26,7 @@
   - [ ] UI v1.0
   - [ ] Camera check ui & logic
   - [ ] Model loading ui & logic
+  - [ ] Store results to sessionStorage
   - [ ] Disable call to action button until list above is true
 - [ ] Finish /training styling
 - [ ] Finish SuccessOverlay styling
