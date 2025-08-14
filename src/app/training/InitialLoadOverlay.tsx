@@ -57,13 +57,26 @@ function InitialLoadOverlay({
 	setHandRecognizerState: Dispatch<SetStateAction<GestureRecognizer | null>>;
 }) {
 	const { isCameraDetected } = useDetectCamera();
-	const [activeStep, setActiveStep] = useState<"camera" | "model">("camera");
+	const [gestureLoadError, setGestureLoadError] = useState("");
+	const [activeStep, setActiveStep] = useState<"camera" | "model" | "finished">(
+		"model",
+	);
 
 	useEffect(() => {
 		if (activeStep === "model") {
+			let gestureModel = null;
 			(async () => {
-				const gestureModel = await fetchGestureRecognizer();
+				try {
+					gestureModel = await fetchGestureRecognizer();
+				} catch (error) {
+					console.error(error);
+					setGestureLoadError(
+						error instanceof Error ? error.message : "Unknown error",
+					);
+				}
+
 				setHandRecognizerState(gestureModel);
+				setActiveStep("finished");
 			})();
 		}
 	}, [activeStep, setHandRecognizerState]);
@@ -73,7 +86,7 @@ function InitialLoadOverlay({
 			setActiveStep("model");
 		}
 	}, [isCameraDetected]);
-
+	console.log(isCameraDetected);
 	return (
 		<div className="w-full h-full max-w-[1500px] mx-auto">
 			<div className="mt-10 flex flex-col gap-y-10">
@@ -96,12 +109,13 @@ function InitialLoadOverlay({
 						failHeading="Failed to load model"
 						index={2}
 						active={activeStep === "model"}
-						success={undefined}
+						success={gestureLoadError.length === 0}
 					/>
 				</ol>
 				<button
 					type="button"
-					className="rounded-md -bg--secondary-pink py-4 px-8 text-white text-4xl col-span-2 hover:brightness-110"
+					className="rounded-md -bg--secondary-pink py-4 px-8 text-white text-4xl col-span-2 hover:brightness-110 disabled:brightness-50"
+					disabled={!isCameraDetected || activeStep !== "finished"}
 					onClick={handleClick}
 				>
 					Start learning now!
