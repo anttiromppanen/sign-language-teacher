@@ -4,12 +4,15 @@
 
 :root {
 	--background: #050211;
-	--foreground: white;
-	--secondary-pink: #f5baba;
-	--secondary-purple: #f2bbf2;
-	--secondary-blue: #bbc1f3;
-	--secondary-green: #bcf3c7;
-	--secondary-yellow: #f0f2bb;
+	--background-alt: #0a041a;
+	--text-primary: #e6e0ff;
+	--text-secondary: #a6a0c0;
+	--highlight: #8a4fff;
+	--highlight-hover: #a871ff;
+	--low-contrast: #1e1a29;
+	--warning: #ff4d5d;
+	--success: #2ecc71;
+	--info: #4d9fff;
 }
 
 body {
@@ -24,6 +27,7 @@ h4,
 h5,
 h6 {
 	font-family: var(--font-oxanium);
+	color: var(--text-primary);
 }
 
 p,

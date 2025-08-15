@@ -9,7 +9,7 @@
 		"lint": "biome check ."
 	},
 	"dependencies": {
-		"@heroicons/react": "^2.1.5",
+		"@heroicons/react": "^2.2.0",
 		"@mediapipe/hands": "^0.4.1675469240",
 		"@mediapipe/tasks-vision": "^0.10.16",
 		"@tensorflow/tfjs": "^4.21.0",

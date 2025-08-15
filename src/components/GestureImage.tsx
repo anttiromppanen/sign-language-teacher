@@ -1,4 +1,4 @@
-import { motion, Transition, Variants } from "framer-motion";
+import { motion, type Transition, type Variants } from "framer-motion";
 import Image from "next/image";
 
 interface GestureImageAnimatedProps {
@@ -16,9 +16,9 @@ interface GestureImageStaticProps {
 
 const styles = {
 	letter:
-		"text-6xl sm:text-8xl absolute z-10 top-2 left-5 sm:top-5 sm:left-10 text-green-dark select-none",
+		"text-6xl sm:text-8xl absolute z-10 top-2 left-5 sm:top-5 sm:left-10 text-black select-none",
 	image:
-		"md:w-[450px] md:h-[377.5px] lg:w-[600px] lg:h-[450px] object-cover border-8 border-foreground grayscale contrast-200 brightness-125",
+		"md:w-[450px] md:h-[377.5px] lg:w-[600px] lg:h-[450px] object-cover border-8 border-foreground grayscale contrast-200 brightness-125 rounded-xl",
 	imageSizes:
 		"(max-width: 640px) 25vw, (min-width: 641px) 50vw, (min-width: 1024px) 450px, 600px",
 };

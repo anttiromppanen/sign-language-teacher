@@ -15,7 +15,6 @@ import ShowImageOverlay from "./ShowImageOverlay";
 import SuccessOverlay from "./SuccessOverlay";
 
 function Training() {
-	// const [round, setRound] = useState(0); // tracks number of rounds
 	const [imgIndex, setImgIndex] = useState(0); // current image to show
 	const [correctGesture, setCorrectGesture] = useState(false); // tracks if gesture is correct
 	const [isCameraError, setIsCameraError] = useState(false);

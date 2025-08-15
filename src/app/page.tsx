@@ -26,7 +26,7 @@ function FirstSection() {
 						/>
 					)}
 				</motion.h1>
-				<motion.p className="font-source_sans text-xl text-white/80 max-w-[1000px]">
+				<motion.p className="font-source_sans text-xl text-text-primary max-w-[1000px]">
 					Turn your camera into a personal sign language tutor. Our AI-powered
 					model recognizes your gestures in real time, giving instant feedback
 					to help you learn faster and more accurately. Whether you&lsquo;re a
@@ -64,7 +64,7 @@ export default function Home() {
 					{/* Optional fallback image */}
 					Your browser does not support the video tag.
 				</motion.video>
-				<motion.div className="w-full h-full bg-background opacity-70 absolute top-0 left-0 -z-10" />
+				<motion.div className="w-full h-full bg-background opacity-80 absolute top-0 left-0 -z-10" />
 			</div>
 			<FirstSection />
 		</div>

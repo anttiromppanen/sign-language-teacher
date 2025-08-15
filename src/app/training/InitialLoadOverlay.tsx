@@ -1,5 +1,10 @@
 "use client";
 
+import {
+	CameraIcon,
+	CheckBadgeIcon,
+	ExclamationTriangleIcon,
+} from "@heroicons/react/20/solid";
 import type { GestureRecognizer } from "@mediapipe/tasks-vision";
 import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
 import useDetectCamera from "@/hooks/useDetectCamera";
@@ -15,6 +20,8 @@ interface LoadingComponentProps {
 	success: boolean | null;
 }
 
+const iconStyles = "size-10";
+
 function LoadingComponent({
 	heading,
 	successHeading,
@@ -24,26 +31,27 @@ function LoadingComponent({
 	active,
 	success,
 }: LoadingComponentProps) {
-	const icon = success ? "✔️" : "❌";
+	const icon = success ? (
+		<CheckBadgeIcon className={`${iconStyles} text-success`} />
+	) : (
+		<ExclamationTriangleIcon className={`${iconStyles} text-warning`} />
+	);
 
 	return (
 		<li
-			className={`flex relative gap-x-2 ${active && "animate-pulse"} ${!active && "opacity-20"} ${success === false && "animate-none"}`}
+			className={`flex flex-col relative rounded-lg border-low-contrast bg-[#0A041A]/50 p-10 border-2 ${active && "animate-pulse"} ${!active && "opacity-20"} ${success === false && "animate-none"}`}
 		>
-			<p className="font-oxanium absolute -left-6 top-0 text-xl">
-				{success === null ? (
-					<span>{index}.</span>
-				) : (
-					<span className="-ml-2 text-lg">{icon}</span>
-				)}
+			<CameraIcon className="size-20 text-highlight mb-4" />
+			<p className="font-oxanium absolute right-4 top-4 text-4xl text-text-secondary">
+				{success === null ? <span>{index}.</span> : icon}
 			</p>
 			<div className="">
-				<h2 className={`text-xl`}>
-					{success === null && <span>{heading}</span>}
-					{success && <span>{successHeading}</span>}
-					{success === false && <span>{failHeading}</span>}
+				<h2 className={`text-2xl text-text-primary`}>
+					{success === null && heading}
+					{success && successHeading}
+					{success === false && failHeading}
 				</h2>
-				<p className="text-white/60">{text}</p>
+				<p className="text-text-secondary">{text}</p>
 			</div>
 		</li>
 	);
@@ -99,8 +107,10 @@ function InitialLoadOverlay({
 	return (
 		<div className="w-full h-full max-w-[1500px] mx-auto">
 			<div className="mt-10 flex flex-col gap-y-10">
-				<h1 className="text-5xl">Before we get started</h1>
-				<ol className="grid grid-cols-2 pl-8 gap-y-2">
+				<h1 className="text-5xl text-text-primary text-center">
+					Before we get started
+				</h1>
+				<ol className="grid grid-cols-2 gap-10">
 					<LoadingComponent
 						heading="Detecting camera..."
 						text="Make sure your device has a camera (i.e. Webcam or front-facing camera on a phone)."
@@ -123,7 +133,7 @@ function InitialLoadOverlay({
 				</ol>
 				<button
 					type="button"
-					className="rounded-md -bg--secondary-pink py-4 px-8 text-white text-4xl col-span-2 hover:brightness-110 disabled:brightness-50"
+					className="rounded-md bg-highlight py-4 px-8 text-white text-4xl col-span-2 hover:brightness-110 disabled:brightness-50"
 					disabled={!isCameraDetected || activeStep !== "finished"}
 					onClick={handleClick}
 				>
