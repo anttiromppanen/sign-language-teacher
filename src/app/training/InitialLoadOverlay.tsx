@@ -12,7 +12,7 @@ interface LoadingComponentProps {
 	text: string;
 	index: number;
 	active: boolean;
-	success: boolean | undefined;
+	success: boolean | null;
 }
 
 function LoadingComponent({
@@ -31,7 +31,7 @@ function LoadingComponent({
 			className={`flex relative gap-x-2 ${active && "animate-pulse"} ${!active && "opacity-20"} ${success === false && "animate-none"}`}
 		>
 			<p className="font-oxanium absolute -left-6 top-0 text-xl">
-				{success === undefined ? (
+				{success === null ? (
 					<span>{index}.</span>
 				) : (
 					<span className="-ml-2 text-lg">{icon}</span>
@@ -39,7 +39,7 @@ function LoadingComponent({
 			</p>
 			<div className="">
 				<h2 className={`text-xl`}>
-					{success === undefined && <span>{heading}</span>}
+					{success === null && <span>{heading}</span>}
 					{success && <span>{successHeading}</span>}
 					{success === false && <span>{failHeading}</span>}
 				</h2>
@@ -49,6 +49,8 @@ function LoadingComponent({
 	);
 }
 
+type StepsType = Record<"camera" | "model", boolean | null>;
+
 function InitialLoadOverlay({
 	handleClick,
 	setHandRecognizerState,
@@ -57,11 +59,25 @@ function InitialLoadOverlay({
 	setHandRecognizerState: Dispatch<SetStateAction<GestureRecognizer | null>>;
 }) {
 	const { isCameraDetected } = useDetectCamera();
-	const [gestureLoadError, setGestureLoadError] = useState("");
 	const [activeStep, setActiveStep] = useState<"camera" | "model" | "finished">(
 		"camera",
 	);
+	const [steps, setSteps] = useState<StepsType>({
+		camera: null,
+		model: null,
+	});
 
+	// Check for camera
+	useEffect(() => {
+		if (isCameraDetected) {
+			setSteps((state) => ({ ...state, camera: true }));
+			setActiveStep("model");
+		} else {
+			setSteps((state) => ({ ...state, camera: false }));
+		}
+	}, [isCameraDetected]);
+
+	// Load hand gesture model if camera found
 	useEffect(() => {
 		if (activeStep === "model") {
 			let gestureModel = null;
@@ -70,23 +86,16 @@ function InitialLoadOverlay({
 					gestureModel = await fetchGestureRecognizer();
 				} catch (error) {
 					console.error(error);
-					setGestureLoadError(
-						error instanceof Error ? error.message : "Unknown error",
-					);
+					setSteps((state) => ({ ...state, model: false }));
 				}
 
 				setHandRecognizerState(gestureModel);
 				setActiveStep("finished");
+				setSteps((state) => ({ ...state, model: true }));
 			})();
 		}
 	}, [activeStep, setHandRecognizerState]);
 
-	useEffect(() => {
-		if (isCameraDetected) {
-			setActiveStep("model");
-		}
-	}, [isCameraDetected]);
-	console.log(isCameraDetected);
 	return (
 		<div className="w-full h-full max-w-[1500px] mx-auto">
 			<div className="mt-10 flex flex-col gap-y-10">
@@ -99,7 +108,7 @@ function InitialLoadOverlay({
 						failHeading="No camera detected"
 						index={1}
 						active={activeStep === "camera"}
-						success={isCameraDetected}
+						success={steps.camera}
 					/>
 
 					<LoadingComponent
@@ -109,7 +118,7 @@ function InitialLoadOverlay({
 						failHeading="Failed to load model"
 						index={2}
 						active={activeStep === "model"}
-						success={gestureLoadError.length === 0}
+						success={steps.model}
 					/>
 				</ol>
 				<button
