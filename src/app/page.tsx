@@ -64,7 +64,7 @@ export default function Home() {
 					{/* Optional fallback image */}
 					Your browser does not support the video tag.
 				</motion.video>
-				<motion.div className="w-full h-full bg-background opacity-80 absolute top-0 left-0 -z-10" />
+				<motion.div className="w-full h-full bg-background opacity-80 bg-radial-gradient absolute top-0 left-0 -z-10" />
 			</div>
 			<FirstSection />
 		</div>

@@ -7,6 +7,7 @@ import {
 } from "@heroicons/react/20/solid";
 import type { GestureRecognizer } from "@mediapipe/tasks-vision";
 import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
+import { LargeButton } from "@/components/Buttons";
 import useDetectCamera from "@/hooks/useDetectCamera";
 import fetchGestureRecognizer from "@/utils/fetchGestureRecognizer";
 
@@ -69,7 +70,7 @@ function InitialLoadOverlay({
 	const { isCameraDetected } = useDetectCamera();
 	const [activeStep, setActiveStep] = useState<"camera" | "model" | "finished">(
 		"camera",
-	);
+	); // should be camera in the beginning
 	const [steps, setSteps] = useState<StepsType>({
 		camera: null,
 		model: null,
@@ -105,7 +106,7 @@ function InitialLoadOverlay({
 	}, [activeStep, setHandRecognizerState]);
 
 	return (
-		<div className="w-full h-screen max-w-[1500px] mx-auto grid grid-cols-[600px_1fr] items-center gap-x-10">
+		<div className="w-full h-[calc(100vh-64px)] max-w-[1500px] mx-auto grid grid-cols-[600px_1fr] items-center gap-x-10">
 			<div className="">
 				<h2 className="text-highlight text-3xl">Training Mode</h2>
 				<h1 className="text-text-primary text-7xl">
@@ -142,14 +143,11 @@ function InitialLoadOverlay({
 							success={steps.model}
 						/>
 					</ol>
-					<button
-						type="button"
-						className="rounded-lg bg-[#8a4fff]/50 backdrop-blur-xl py-4 px-8 text-white text-4xl col-span-2 hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed"
+					<LargeButton
+						text="Start learning now!"
 						disabled={!isCameraDetected || activeStep !== "finished"}
-						onClick={handleClick}
-					>
-						Start learning now!
-					</button>
+						handleClick={handleClick}
+					/>
 				</div>
 			</div>
 		</div>

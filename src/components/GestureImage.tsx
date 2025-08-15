@@ -16,9 +16,9 @@ interface GestureImageStaticProps {
 
 const styles = {
 	letter:
-		"text-6xl sm:text-8xl absolute z-10 top-2 left-5 sm:top-5 sm:left-10 text-black select-none",
+		"text-6xl sm:text-8xl absolute z-10 top-2 left-5 sm:top-5 sm:left-10 text-[rgba(255,255,255,0.6)] select-none",
 	image:
-		"md:w-[450px] md:h-[377.5px] lg:w-[600px] lg:h-[450px] object-cover border-8 border-foreground grayscale contrast-200 brightness-125 rounded-xl",
+		"md:w-[450px] md:h-[377.5px] lg:w-[600px] lg:h-[450px] object-cover border-8 border-foreground grayscale invert opacity-60 contrast-200 brightness-125 rounded-xl",
 	imageSizes:
 		"(max-width: 640px) 25vw, (min-width: 641px) 50vw, (min-width: 1024px) 450px, 600px",
 };
@@ -31,7 +31,7 @@ export function GestureImageAnimated({
 	transition,
 }: GestureImageAnimatedProps) {
 	return (
-		<div className="relative">
+		<div className="relative rounded-xl">
 			<motion.h2
 				key={imageObjects[imgIndex][0]}
 				custom={direction}
@@ -64,7 +64,7 @@ export function GestureImageStatic({
 	imgUrl,
 }: GestureImageStaticProps) {
 	return (
-		<div className="relative">
+		<div className="relative rounded-xl">
 			<h2 className={styles.letter}>{imgLetter}</h2>
 			<Image
 				src={imgUrl}

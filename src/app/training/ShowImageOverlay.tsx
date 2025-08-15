@@ -1,3 +1,4 @@
+import { LargeButton } from "@/components/Buttons";
 import { GestureImageStatic } from "@/components/GestureImage";
 
 function ShowImageOverlay({
@@ -10,19 +11,18 @@ function ShowImageOverlay({
 	const [letter, imgUrl] = imageObject;
 
 	return (
-		<div className="flex flex-col justify-center items-center w-full h-full">
-			<h2 className="text-7xl my-8">
+		<div className="flex flex-col mt-4 gap-y-8 justify-center items-center w-full h-full">
+			<h2 className="text-7xl">
 				Letter <span className="font-bold text-8xl ml-4 italic">{letter}</span>
 			</h2>
 			<GestureImageStatic imgLetter={letter} imgUrl={imgUrl} />
-			<button
-				type="button"
-				className="mt-8 rounded-md -bg--secondary-pink py-4 px-8 text-background text-4xl col-span-2 hover:brightness-110"
-				data-testid="image-overlay-button"
-				onClick={handleClick}
-			>
+			<LargeButton
+				text="
 				I&lsquo;m ready!
-			</button>
+				"
+				disabled={false}
+				handleClick={handleClick}
+			/>
 		</div>
 	);
 }
