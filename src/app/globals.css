@@ -42,35 +42,24 @@ button {
 		text-wrap: balance;
 	}
 
-	.border-on-top-green {
-		position: relative;
-		display: inline-block;
+	.bg-radial-gradient {
+		background-image:
+			radial-gradient(
+				circle 1200px at bottom left,
+				#2e1a56 0%,
+				transparent 100%
+			),
+			radial-gradient(circle 600px at top right, #321d5d 0%, transparent 100%),
+			radial-gradient(circle 600px at top center, #251645 0%, transparent 100%);
+		background-repeat: no-repeat;
+		background-size: cover;
 	}
 
-	.border-on-top-green::before {
-		content: "";
-		position: absolute;
-		bottom: 10px; /* Adjust this value to position the line */
-		left: 0;
-		width: 100%;
-		height: 30px; /* Height of the border */
-		z-index: -1;
-		background-color: var(--secondary-green); /* Color of the border */
-	}
-
-	.border-on-top-purple {
-		position: relative;
-		display: inline-block;
-	}
-
-	.border-on-top-purple::before {
-		content: "";
-		position: absolute;
-		bottom: 10px; /* Adjust this value to position the line */
-		left: 0;
-		width: 100%;
-		height: 30px; /* Height of the border */
-		z-index: -1;
-		background-color: var(--secondary-purple); /* Color of the border */
+	.card-bg-radial {
+		background-image: radial-gradient(
+			circle 800px at bottom center,
+			var(--background-alt) 0%,
+			transparent 100%
+		);
 	}
 }

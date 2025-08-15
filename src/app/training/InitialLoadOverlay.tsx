@@ -39,7 +39,7 @@ function LoadingComponent({
 
 	return (
 		<li
-			className={`flex flex-col relative rounded-lg border-low-contrast bg-[#0A041A]/50 p-10 border-2 ${active && "animate-pulse"} ${!active && "opacity-20"} ${success === false && "animate-none"}`}
+			className={`flex flex-col relative rounded-xl border-[#1e1a29]/70 shadow-[#0a041a]/50 bg-[#8a4fff]/20 card-bg-radial backdrop-blur-xl p-10 ${active && "*:animate-pulse"} ${!active && "opacity-20"} ${success === false && "animate-none"}`}
 		>
 			<CameraIcon className="size-20 text-highlight mb-4" />
 			<p className="font-oxanium absolute right-4 top-4 text-4xl text-text-secondary">
@@ -105,40 +105,52 @@ function InitialLoadOverlay({
 	}, [activeStep, setHandRecognizerState]);
 
 	return (
-		<div className="w-full h-full max-w-[1500px] mx-auto">
-			<div className="mt-10 flex flex-col gap-y-10">
-				<h1 className="text-5xl text-text-primary text-center">
-					Before we get started
+		<div className="w-full h-screen max-w-[1500px] mx-auto grid grid-cols-[600px_1fr] items-center gap-x-10">
+			<div className="">
+				<h2 className="text-highlight text-3xl">Training Mode</h2>
+				<h1 className="text-text-primary text-7xl">
+					Learn The Sign Language Alphabet In Real Time
 				</h1>
-				<ol className="grid grid-cols-2 gap-10">
-					<LoadingComponent
-						heading="Detecting camera..."
-						text="Make sure your device has a camera (i.e. Webcam or front-facing camera on a phone)."
-						successHeading="Camera detected"
-						failHeading="No camera detected"
-						index={1}
-						active={activeStep === "camera"}
-						success={steps.camera}
-					/>
+				<p className="text-xl text-text-secondary">
+					Use your device's camera to practice signing each letter of the
+					alphabet while our AI detects your hand gestures, gives instant
+					feedback, and helps you improve with every move.
+				</p>
+			</div>
+			<div className="flex items-center justify-center rounded-xl w-full">
+				<div className="p-14 flex flex-col gap-y-10 max-w-[800px] backdrop-blur-3xl bg-black/10 rounded-xl">
+					<h2 className="text-3xl text-text-primary">Before we get started</h2>
+					<p></p>
+					<ol className="grid grid-cols-2 gap-10">
+						<LoadingComponent
+							heading="Detecting camera..."
+							text="Make sure your device has a camera (i.e. Webcam or front-facing camera on a phone)."
+							successHeading="Camera detected"
+							failHeading="No camera detected"
+							index={1}
+							active={activeStep === "camera"}
+							success={steps.camera}
+						/>
 
-					<LoadingComponent
-						heading="Load model"
-						text="Wait for machine learning model to load."
-						successHeading="Model loaded"
-						failHeading="Failed to load model"
-						index={2}
-						active={activeStep === "model"}
-						success={steps.model}
-					/>
-				</ol>
-				<button
-					type="button"
-					className="rounded-md bg-highlight py-4 px-8 text-white text-4xl col-span-2 hover:brightness-110 disabled:brightness-50"
-					disabled={!isCameraDetected || activeStep !== "finished"}
-					onClick={handleClick}
-				>
-					Start learning now!
-				</button>
+						<LoadingComponent
+							heading="Load model"
+							text="Wait for machine learning model to load."
+							successHeading="Model loaded"
+							failHeading="Failed to load model"
+							index={2}
+							active={activeStep === "model"}
+							success={steps.model}
+						/>
+					</ol>
+					<button
+						type="button"
+						className="rounded-lg bg-[#8a4fff]/50 backdrop-blur-xl py-4 px-8 text-white text-4xl col-span-2 hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed"
+						disabled={!isCameraDetected || activeStep !== "finished"}
+						onClick={handleClick}
+					>
+						Start learning now!
+					</button>
+				</div>
 			</div>
 		</div>
 	);

@@ -36,7 +36,7 @@ function FirstSection() {
 				<motion.div className="mt-4">
 					<Link
 						href="/training"
-						className="font-source_sans py-4 px-6 rounded-xl bg-blue-800 text-xl text-white"
+						className="font-source_sans py-4 px-6 rounded-xl bg-highlight text-xl text-white"
 					>
 						Start training
 					</Link>

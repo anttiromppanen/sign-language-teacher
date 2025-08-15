@@ -1,6 +1,6 @@
-import Appbar from "@/components/Appbar/page";
 import type { Metadata } from "next";
 import { Oxanium, Source_Sans_3 } from "next/font/google";
+import Appbar from "@/components/Appbar/page";
 import "./globals.css";
 
 const source_sans = Source_Sans_3({
@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className={`${source_sans.variable} ${oxanium.variable}`}>
-			<body className={`antialiased bg-background`}>
+			<body className={`antialiased bg-background bg-radial-gradient h-screen`}>
 				<Appbar />
 				{children}
 			</body>

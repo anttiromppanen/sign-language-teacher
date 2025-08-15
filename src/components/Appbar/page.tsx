@@ -1,9 +1,8 @@
 import Link from "next/link";
-import React from "react";
 
 function Appbar() {
 	return (
-		<div className="py-4 px-6 flex justify-between w-full items-center bg-white/5 text-text-primary max-w-[1500px] mx-auto rounded-b-xl">
+		<div className="py-4 px-6 flex justify-between w-full items-center bg-white/5 backdrop-blur-sm text-text-primary max-w-[1500px] mx-auto rounded-b-xl fixed top-0 left-1/2 -translate-x-1/2">
 			<Link href="/" className="text-2xl">
 				signer
 			</Link>
