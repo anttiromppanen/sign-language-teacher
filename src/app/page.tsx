@@ -26,7 +26,7 @@ function FirstSection() {
 						/>
 					)}
 				</motion.h1>
-				<motion.p className="font-source_sans text-xl text-text-primary max-w-[1000px]">
+				<motion.p className="font-source_sans text-xl text-text-primary max-w-[1000px] md:text-2xl">
 					Turn your camera into a personal sign language tutor. Our AI-powered
 					model recognizes your gestures in real time, giving instant feedback
 					to help you learn faster and more accurately. Whether you&lsquo;re a

@@ -21,7 +21,7 @@ interface LoadingComponentProps {
 	success: boolean | null;
 }
 
-const iconStyles = "size-10";
+const iconStyles = "size-8";
 
 function LoadingComponent({
 	heading,
@@ -40,9 +40,13 @@ function LoadingComponent({
 
 	return (
 		<li
-			className={`flex flex-col relative rounded-xl border-[#1e1a29]/70 shadow-[#0a041a]/50 bg-[#8a4fff]/20 card-bg-radial backdrop-blur-xl p-10 ${active && "*:animate-pulse"} ${!active && "opacity-20"} ${success === false && "animate-none"}`}
+			className={`
+				flex relative rounded-xl border-[#1e1a29]/70 shadow-[#0a041a]/50 bg-[#8a4fff]/20 card-bg-radial backdrop-blur-xl p-4 gap-x-4
+				xl:flex-col xl:p-6
+				${active && "*:animate-pulse"} ${!active && "opacity-20"} ${success === false && "animate-none"}
+			`}
 		>
-			<CameraIcon className="size-20 text-highlight mb-4" />
+			<CameraIcon className="size-10 text-highlight -mt-1.5 xl:mb-4 xl:size-12" />
 			<p className="font-oxanium absolute right-4 top-4 text-4xl text-text-secondary">
 				{success === null ? <span>{index}.</span> : icon}
 			</p>
@@ -106,7 +110,7 @@ function InitialLoadOverlay({
 	}, [activeStep, setHandRecognizerState]);
 
 	return (
-		<div className="w-full h-[calc(100vh-64px)] max-w-[1500px] mx-auto grid grid-cols-[600px_1fr] items-center gap-x-10">
+		<div className="flex flex-col justify-around w-full h-[calc(100vh-64px)] max-w-[1500px] mx-auto xl:grid xl:grid-cols-[600px_1fr] items-center gap-x-10 px-8 xl:gap-y-0">
 			<div className="">
 				<h2 className="text-highlight text-3xl">Training Mode</h2>
 				<h1 className="text-text-primary text-7xl">
@@ -119,10 +123,12 @@ function InitialLoadOverlay({
 				</p>
 			</div>
 			<div className="flex items-center justify-center rounded-xl w-full">
-				<div className="p-14 flex flex-col gap-y-10 max-w-[800px] backdrop-blur-3xl bg-black/10 rounded-xl">
-					<h2 className="text-3xl text-text-primary">Before we get started</h2>
+				<div className="p-8 flex flex-col gap-y-3 w-full backdrop-blur-3xl bg-black/10 rounded-xl xl:gap-y-10 xl:p-14 xl:max-w-[800px]">
+					<h2 className="text-3xl text-text-primary xl:-mb-10">
+						Before we get started
+					</h2>
 					<p></p>
-					<ol className="grid grid-cols-2 gap-10">
+					<ol className="xl:grid-cols-2 grid gap-y-4 xl:gap-10">
 						<LoadingComponent
 							heading="Detecting camera..."
 							text="Make sure your device has a camera (i.e. Webcam or front-facing camera on a phone)."
