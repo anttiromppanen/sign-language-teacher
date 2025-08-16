@@ -14,9 +14,9 @@ function FirstSection() {
 	}, []);
 
 	return (
-		<div className="w-full items-center h-[calc(100vh-64px)] gap-x-4 px-8 max-w-[1560px] mx-auto">
-			<div className="flex flex-col justify-center items-center gap-y-8 h-full text-center">
-				<motion.h1 className="text-6xl md:text-9xl font-oxanium sticky top-0 text-white">
+		<div className="w-full items-center justify-center flex h-[calc(100vh-64px)] gap-x-4 px-8 max-w-[1560px] mx-auto">
+			<div className="flex flex-col justify-center md:items-center gap-y-8 md:text-center rounded-xl">
+				<motion.h1 className="text-7xl md:text-9xl font-oxanium sticky top-0 text-white rounded-lg font-semibold">
 					{!showTyped && <span className="block">Hands-On AI Learning</span>}
 					{showTyped && (
 						<ReactTyped
@@ -26,14 +26,16 @@ function FirstSection() {
 						/>
 					)}
 				</motion.h1>
-				<motion.p className="font-source_sans text-lg sm:text-xl text-text-primary max-w-[1000px] md:text-2xl">
-					Turn your camera into a personal sign language tutor. Our AI-powered
-					model recognizes your gestures in real time, giving instant feedback
-					to help you learn faster and more accurately. Whether you&lsquo;re a
-					beginner or looking to sharpen your skills, practice anywhere,
-					anytime.
-				</motion.p>
-				<motion.div className="mt-4">
+				<div className="text-left md:max-w-[600px] xl:max-w-[1000px]">
+					<motion.p className="font-source_sans text-lg sm:text-xl text-text-primary md:text-2xl">
+						Turn your camera into a personal sign language tutor. Our AI-powered
+						model recognizes your gestures in real time, giving instant feedback
+						to help you learn faster and more accurately. Whether you&lsquo;re a
+						beginner or looking to sharpen your skills, practice anywhere,
+						anytime.
+					</motion.p>
+				</div>
+				<motion.div className="py-4 px-6">
 					<Link
 						href="/training"
 						className="font-source_sans py-4 px-6 rounded-xl bg-highlight text-xl text-white"
@@ -60,6 +62,8 @@ export default function Home() {
 					playsInline
 					className="fixed top-0 left-0 w-full h-full object-cover -z-20"
 				>
+					<source src="/img/hand_ai_mobile.mp4" media="(max-width: 640px)" />
+					<source src="/img/hand_ai_tablet.mp4" media="(max-width: 1024px)" />
 					<source src="/img/hand_ai.mp4" type="video/mp4" />
 					{/* Optional fallback image */}
 					Your browser does not support the video tag.
