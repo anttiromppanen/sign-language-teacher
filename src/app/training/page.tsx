@@ -1,12 +1,12 @@
 "use client";
 
+import useGestureDetectionLoop from "@/hooks/useGestureDetectionLoop";
+import { getImageByCharacterArray } from "@/utils/getImageByCharacter";
 import type { GestureRecognizer } from "@mediapipe/tasks-vision";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import Webcam from "react-webcam";
-import useGestureDetectionLoop from "@/hooks/useGestureDetectionLoop";
-import { getImageByCharacterArray } from "@/utils/getImageByCharacter";
 import CameraError from "./CameraError";
 import CorrectGestureOverlay from "./CorrectGestureOverlay";
 import InitialLoadOverlay from "./InitialLoadOverlay";
@@ -91,7 +91,7 @@ function Training() {
 				!successOverlay &&
 				!isCameraError && (
 					<div className="absolute left-0 top-0 -z-10">
-						<div className="bg-foreground text-background absolute left-10 bottom-10 z-10 text-7xl px-4 py-2 rounded-xl opacity-90">
+						<div className="bg-white/20 backdrop-blur-sm absolute left-10 bottom-10 z-10 text-7xl px-4 py-2 rounded-xl opacity-90 font-oxanium font-bold">
 							{imageObjects[imgIndex][0]}
 						</div>
 						{correctGesture && (

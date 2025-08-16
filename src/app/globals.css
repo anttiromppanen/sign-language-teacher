@@ -3,21 +3,21 @@
 @tailwind utilities;
 
 :root {
-	--background: #050211;
-	--background-alt: #0a041a;
-	--text-primary: #e6e0ff;
-	--text-secondary: #a6a0c0;
-	--highlight: #8a4fff;
-	--highlight-hover: #a871ff;
-	--low-contrast: #1e1a29;
-	--warning: #ff4d5d;
-	--success: #2ecc71;
-	--info: #4d9fff;
+  --background: #050211;
+  --background-alt: #0a041a;
+  --text-primary: #e6e0ff;
+  --text-secondary: #a6a0c0;
+  --highlight: #8a4fff;
+  --highlight-hover: #a871ff;
+  --low-contrast: #1e1a29;
+  --warning: #ff4d5d;
+  --success: #2ecc71;
+  --info: #4d9fff;
 }
 
 body {
-	color: var(--foreground);
-	background: var(--background);
+  color: var(--foreground);
+  background: var(--background);
 }
 
 h1,
@@ -26,32 +26,31 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: var(--font-oxanium);
-	color: var(--text-primary);
+  font-family: var(--font-oxanium);
+  color: var(--text-primary);
 }
 
 p,
 span,
 a,
 button {
-	font-family: var(--font-source_sans_3);
+  font-family: var(--font-source_sans_3);
 }
 
 @layer utilities {
-	.text-balance {
-		text-wrap: balance;
-	}
+  .text-balance {
+    text-wrap: balance;
+  }
 
-	.bg-radial-gradient {
-		background-image:
-			radial-gradient(
-				circle 1200px at bottom left,
-				#2e1a56 0%,
-				transparent 100%
-			),
-			radial-gradient(circle 600px at top right, #321d5d 0%, transparent 100%),
-			radial-gradient(circle 600px at top center, #251645 0%, transparent 100%);
-		background-repeat: no-repeat;
-		background-size: cover;
-	}
+  .bg-radial-gradient {
+    background-image: radial-gradient(
+        circle 1200px at bottom left,
+        #2e1a56 0%,
+        transparent 100%
+      ),
+      radial-gradient(circle 600px at top right, #321d5d 0%, transparent 100%),
+      radial-gradient(circle 600px at top center, #251645 0%, transparent 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }

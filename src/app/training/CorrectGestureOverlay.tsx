@@ -1,25 +1,21 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useState } from "react";
-import successGif from "../../../public/img/success.gif";
 
 const parentVariants = {
 	initial: {
-		height: 0,
 		width: "100vw",
+		height: "100vh",
 		opacity: 0,
 	},
 	animate: {
-		height: "100vh",
-		opacity: 0.7,
+		opacity: 0.9,
 		transition: {
-			delay: 0.5,
-			duration: 0.8,
+			delay: 0.2,
+			duration: 1,
 			ease: [0.76, 0, 0.24, 1],
 		},
 	},
 	exit: {
-		height: 0,
 		opacity: 0,
 		transition: {
 			delay: 2,
@@ -68,7 +64,7 @@ function CorrectGestureOverlay({
 			}}
 			onAnimationComplete={() => setShowChild(true)}
 			className="
-      absolute z-10 bg-white opacity-70 flex flex-col justify-center items-center left-0 top-0"
+      absolute z-10 bg-background flex flex-col justify-center items-center left-0 top-0"
 		>
 			{showChild && (
 				<motion.div
@@ -80,7 +76,6 @@ function CorrectGestureOverlay({
 					className="flex flex-col justify-center items-center gap-y-8 p-20 h-[500px] w-[500px]"
 				>
 					<h1 className="text-foreground text-9xl font-alice">Success!</h1>
-					<Image src={successGif} alt="Success" priority />
 				</motion.div>
 			)}
 		</motion.div>

@@ -4,7 +4,11 @@ import logoImg from "../../../public/img/logo.png";
 
 function Appbar() {
 	return (
-		<div className="py-4 px-4 lg:px-6 flex justify-between w-full items-center bg-white/5 backdrop-blur-sm text-text-primary max-w-[1500px] mx-auto rounded-b-xl sm:px-8">
+		<div
+			className={`
+			py-4 px-4 lg:px-6 flex justify-between w-full items-center bg-[#8a4fff]/10 backdrop-blur-lg text-text-primary max-w-[1500px] mx-auto rounded-b-xl sm:px-8
+			`}
+		>
 			<Link href="/" className="">
 				<Image src={logoImg} alt="Signer logo" className="h-auto w-24" />
 			</Link>
