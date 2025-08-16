@@ -117,7 +117,7 @@ function InitialLoadOverlay({
 	}, [activeStep, setHandRecognizerState]);
 
 	return (
-		<div className="flex flex-col justify-between pt-8 pb-2 w-full min-h-[calc(100vh-64px)] max-w-[1500px] mx-auto xl:grid xl:grid-cols-[600px_1fr] items-center gap-x-10 px-4 md:px-8 xl:gap-y-0">
+		<div className="flex flex-col justify-between pt-8 pb-4 w-full min-h-[calc(100vh-64px)] xl:grid xl:grid-cols-[600px_1fr] items-center gap-x-10 xl:gap-y-0">
 			{/* FIRST COLUMN */}
 			<div className="">
 				<h2 className="text-highlight text-xl md:text-3xl">Training Mode</h2>
@@ -132,7 +132,7 @@ function InitialLoadOverlay({
 			</div>
 			{/* SECOND COLUMN */}
 			<div className="flex items-center justify-center rounded-xl w-full">
-				<div className="p-2 md:p-8 flex flex-col gap-y-3 w-full backdrop-blur-3xl bg-black/10 rounded-xl xl:gap-y-10 xl:p-10 xl:max-w-[800px]">
+				<div className="p-2 md:p-8 flex flex-col gap-y-3 w-full backdrop-blur-3xl bg-black/20 rounded-xl xl:gap-y-10 xl:p-10 xl:max-w-[800px]">
 					<h2 className="text-2xl md:text-3xl text-center text-text-primary xl:-mb-10">
 						Before we get started
 					</h2>

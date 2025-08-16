@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ReactTyped } from "react-typed";
+import Container from "@/components/Container";
 
 function FirstSection() {
 	const [showTyped, setShowTyped] = useState(false);
@@ -14,37 +15,39 @@ function FirstSection() {
 	}, []);
 
 	return (
-		<div className="w-full items-center justify-center flex h-[calc(100vh-64px)] gap-x-4 px-8 max-w-[1560px] mx-auto">
-			<div className="flex flex-col justify-center md:items-center gap-y-8 md:text-center rounded-xl">
-				<h1 className="text-7xl md:text-9xl font-oxanium sticky top-0 text-white rounded-lg font-semibold">
-					{!showTyped && <span className="block">Hands-On AI Learning</span>}
-					{showTyped && (
-						<ReactTyped
-							strings={["Hands-On AI Learning"]}
-							typeSpeed={90}
-							startDelay={0}
-						/>
-					)}
-				</h1>
-				<div className="text-left md:max-w-[600px] xl:max-w-[1000px]">
-					<motion.p className="font-source_sans text-lg sm:text-xl text-text-primary md:text-2xl">
-						Turn your camera into a personal sign language tutor. Our AI-powered
-						model recognizes your gestures in real time, giving instant feedback
-						to help you learn faster and more accurately. Whether you&lsquo;re a
-						beginner or looking to sharpen your skills, practice anywhere,
-						anytime.
-					</motion.p>
-				</div>
-				<div className="py-4 px-6">
-					<Link
-						href="/training"
-						className="font-source_sans py-4 px-6 rounded-xl bg-highlight text-xl text-white"
-					>
-						Start training
-					</Link>
+		<Container>
+			<div className="w-full items-center justify-center flex h-[calc(100vh-64px)] gap-x-4">
+				<div className="flex flex-col justify-center md:items-center gap-y-8 text-center rounded-xl">
+					<h1 className="text-7xl md:text-9xl font-oxanium sticky top-0 text-white rounded-lg font-semibold">
+						{!showTyped && <span className="block">Hands-On AI Learning</span>}
+						{showTyped && (
+							<ReactTyped
+								strings={["Hands-On AI Learning"]}
+								typeSpeed={90}
+								startDelay={0}
+							/>
+						)}
+					</h1>
+					<div className="text-center md:text-left md:max-w-[600px] xl:max-w-[1000px]">
+						<motion.p className="font-source_sans text-lg sm:text-xl text-text-primary md:text-2xl">
+							Turn your camera into a personal sign language tutor. Our
+							AI-powered model recognizes your gestures in real time, giving
+							instant feedback to help you learn faster and more accurately.
+							Whether you&lsquo;re a beginner or looking to sharpen your skills,
+							practice anywhere, anytime.
+						</motion.p>
+					</div>
+					<div className="py-4 px-6">
+						<Link
+							href="/training"
+							className="font-source_sans py-4 px-6 rounded-xl bg-highlight text-xl text-white"
+						>
+							Start training
+						</Link>
+					</div>
 				</div>
 			</div>
-		</div>
+		</Container>
 	);
 }
 

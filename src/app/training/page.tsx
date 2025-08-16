@@ -1,12 +1,13 @@
 "use client";
 
-import useGestureDetectionLoop from "@/hooks/useGestureDetectionLoop";
-import { getImageByCharacterArray } from "@/utils/getImageByCharacter";
 import type { GestureRecognizer } from "@mediapipe/tasks-vision";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import Webcam from "react-webcam";
+import Container from "@/components/Container";
+import useGestureDetectionLoop from "@/hooks/useGestureDetectionLoop";
+import { getImageByCharacterArray } from "@/utils/getImageByCharacter";
 import CameraError from "./CameraError";
 import CorrectGestureOverlay from "./CorrectGestureOverlay";
 import InitialLoadOverlay from "./InitialLoadOverlay";
@@ -66,7 +67,7 @@ function Training() {
 	}, [currentGesture, imgIndex, imageObjects]);
 
 	return (
-		<div className="">
+		<Container>
 			{isCameraError && <CameraError />}
 			{initialLoadOverlay && (
 				<InitialLoadOverlay
@@ -135,7 +136,7 @@ function Training() {
 						/>
 					</motion.div>
 				)}
-		</div>
+		</Container>
 	);
 }
 
