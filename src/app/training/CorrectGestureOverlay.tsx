@@ -11,15 +11,15 @@ const parentVariants = {
 		opacity: 0.9,
 		transition: {
 			delay: 0.2,
-			duration: 1,
+			duration: 0.5,
 			ease: [0.76, 0, 0.24, 1],
 		},
 	},
 	exit: {
-		opacity: 0,
+		opacity: 1,
 		transition: {
-			delay: 2,
-			duration: 0.8,
+			delay: 1,
+			duration: 0.5,
 			ease: [0.76, 0, 0.24, 1],
 		},
 	},
@@ -39,7 +39,7 @@ const childVariants = {
 	},
 	exit: {
 		opacity: 0,
-		transition: { delay: 1.9, scale: 0 },
+		transition: { delay: 1, scale: 0 },
 	},
 };
 
@@ -57,14 +57,9 @@ function CorrectGestureOverlay({
 			initial="initial"
 			animate="animate"
 			exit="exit"
-			transition={{
-				delay: 0.5,
-				duration: 0.8,
-				ease: [0.76, 0, 0.24, 1],
-			}}
 			onAnimationComplete={() => setShowChild(true)}
 			className="
-      absolute z-10 bg-background flex flex-col justify-center items-center left-0 top-0"
+      absolute z-10 bg-background bg-radial-gradient flex flex-col justify-center items-center left-0 top-0"
 		>
 			{showChild && (
 				<motion.div

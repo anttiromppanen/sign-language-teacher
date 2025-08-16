@@ -3,7 +3,7 @@
 import useGestureDetectionLoop from "@/hooks/useGestureDetectionLoop";
 import { getImageByCharacterArray } from "@/utils/getImageByCharacter";
 import type { GestureRecognizer } from "@mediapipe/tasks-vision";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import Webcam from "react-webcam";
@@ -90,7 +90,12 @@ function Training() {
 				!gestureImageOverlay &&
 				!successOverlay &&
 				!isCameraError && (
-					<div className="absolute left-0 top-0 -z-10">
+					<motion.div
+						key="animateWebcam"
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1, transition: { duration: 1, delay: 1 } }}
+						className="absolute left-0 top-0 -z-10"
+					>
 						<div className="bg-white/20 backdrop-blur-sm absolute left-10 bottom-10 z-10 text-7xl px-4 py-2 rounded-xl opacity-90 font-oxanium font-bold">
 							{imageObjects[imgIndex][0]}
 						</div>
@@ -108,7 +113,10 @@ function Training() {
 								</CountdownCircleTimer>
 							</div>
 						)}
-						<AnimatePresence onExitComplete={() => setSuccessOverlay(true)}>
+						<AnimatePresence
+							mode="wait"
+							onExitComplete={() => setSuccessOverlay(true)}
+						>
 							{correctGestureOverlay && (
 								<CorrectGestureOverlay
 									setCorrectGestureOverlay={setCorrectGestureOverlay}
@@ -125,7 +133,7 @@ function Training() {
 							onUserMediaError={() => setIsCameraError(true)}
 							className="h-screen w-screen object-cover"
 						/>
-					</div>
+					</motion.div>
 				)}
 		</div>
 	);
