@@ -54,12 +54,4 @@ button {
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
-
-	.card-bg-radial {
-		background-image: radial-gradient(
-			circle 800px at bottom center,
-			var(--background-alt) 0%,
-			transparent 100%
-		);
-	}
 }

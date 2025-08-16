@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import Webcam from "react-webcam";
 import useGestureDetectionLoop from "@/hooks/useGestureDetectionLoop";
-import useInitializeGestureRecognizer from "@/hooks/useInitializeGestureRecognizer";
 import { getImageByCharacterArray } from "@/utils/getImageByCharacter";
 import CameraError from "./CameraError";
 import CorrectGestureOverlay from "./CorrectGestureOverlay";
@@ -31,9 +30,8 @@ function Training() {
 	const cameraRef = useRef<Webcam | null>(null);
 	const [handRecognizerState, setHandRecognizerState] =
 		useState<GestureRecognizer | null>(null);
-	// const handGestureRecognizer = useInitializeGestureRecognizer();
+
 	const { currentGesture } = useGestureDetectionLoop({
-		// handRecognizerState: handGestureRecognizer,
 		handRecognizerState,
 		cameraRef,
 	});
