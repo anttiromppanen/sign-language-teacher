@@ -1,7 +1,7 @@
 # Sign Language Teacher
 
-![GitHub last commit](https://img.shields.io/github/last-commit/anttiromppanen/fm-personal-finance?logo=github)
-![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/anttiromppanen/fm-personal-finance)
+![GitHub last commit](https://img.shields.io/github/last-commit/anttiromppanen/sign-language-teacher)
+![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/anttiromppanen/sign-language-teacher)
 
 Web application using custom trained MediaPipe Gesture Recognizer to detect American Sign Language (ASL) alphabets via webcam, or other on-device camera. Camera feed and the gesture calculations are done in user's browser, which makes it safe to use from user's perspective. Requires camera access allowed for the training tool to work.
 
@@ -20,4 +20,4 @@ Consists on image carousel of the ASL alphabet on /alphabet and the main ASL tra
 - MediaPipe, Tensorflow
 
 ### Linting
-- Eslint, Prettier
+- Biome
