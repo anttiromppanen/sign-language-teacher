@@ -16,7 +16,7 @@ function FirstSection() {
 	return (
 		<div className="w-full items-center justify-center flex h-[calc(100vh-64px)] gap-x-4 px-8 max-w-[1560px] mx-auto">
 			<div className="flex flex-col justify-center md:items-center gap-y-8 md:text-center rounded-xl">
-				<motion.h1 className="text-7xl md:text-9xl font-oxanium sticky top-0 text-white rounded-lg font-semibold">
+				<h1 className="text-7xl md:text-9xl font-oxanium sticky top-0 text-white rounded-lg font-semibold">
 					{!showTyped && <span className="block">Hands-On AI Learning</span>}
 					{showTyped && (
 						<ReactTyped
@@ -25,7 +25,7 @@ function FirstSection() {
 							startDelay={0}
 						/>
 					)}
-				</motion.h1>
+				</h1>
 				<div className="text-left md:max-w-[600px] xl:max-w-[1000px]">
 					<motion.p className="font-source_sans text-lg sm:text-xl text-text-primary md:text-2xl">
 						Turn your camera into a personal sign language tutor. Our AI-powered
@@ -35,14 +35,14 @@ function FirstSection() {
 						anytime.
 					</motion.p>
 				</div>
-				<motion.div className="py-4 px-6">
+				<div className="py-4 px-6">
 					<Link
 						href="/training"
 						className="font-source_sans py-4 px-6 rounded-xl bg-highlight text-xl text-white"
 					>
 						Start training
 					</Link>
-				</motion.div>
+				</div>
 			</div>
 		</div>
 	);
@@ -68,7 +68,7 @@ export default function Home() {
 					{/* Optional fallback image */}
 					Your browser does not support the video tag.
 				</motion.video>
-				<motion.div className="w-full h-full bg-background opacity-80 bg-radial-gradient absolute top-0 left-0 -z-10" />
+				<div className="w-full h-full bg-background opacity-80 bg-radial-gradient absolute top-0 left-0 -z-10" />
 			</div>
 			<FirstSection />
 		</div>

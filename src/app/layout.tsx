@@ -18,7 +18,7 @@ const oxanium = Oxanium({
 });
 
 export const metadata: Metadata = {
-	title: "Sign Language Teacher",
+	title: "Sign Language Teacher - Signer",
 	description: "Learn the alphabet in American Sign Language",
 };
 

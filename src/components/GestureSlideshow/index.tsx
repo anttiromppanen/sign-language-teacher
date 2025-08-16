@@ -1,7 +1,7 @@
 "use client";
 
-import { getImageByCharacterArray } from "@/utils/getImageByCharacter";
 import { useState } from "react";
+import { getImageByCharacterArray } from "@/utils/getImageByCharacter";
 import Buttons from "./Buttons";
 import SlideshowItem from "./SlideshowItem";
 
@@ -25,7 +25,7 @@ function GestureSlideshow() {
 	};
 
 	return (
-		<section className="relative md:px-20 w-fit overflow-hidden">
+		<section className="relative md:px-32 w-fit overflow-hidden">
 			<div className="overflow-hidden">
 				<SlideshowItem
 					imgIndex={imgIndex}
