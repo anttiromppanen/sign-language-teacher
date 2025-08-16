@@ -11,10 +11,16 @@ function ShowImageOverlay({
 	const [letter, imgUrl] = imageObject;
 
 	return (
-		<div className="flex flex-col mt-4 gap-y-8 justify-center items-center w-full h-full">
-			<h2 className="text-7xl">
-				Letter <span className="font-bold text-8xl ml-4 italic">{letter}</span>
-			</h2>
+		<div className="flex flex-col gap-y-8 px-8 h-[calc(100vh-64px)] justify-center items-center w-full">
+			<div>
+				<h1 className="text-4xl md:text-7xl text-text-primary">
+					Training mode
+				</h1>
+				<p className="text-text-secondary text-xl">
+					Memorize the gesture from the image below, and press I'm ready when
+					you are ready to start the virtual training!
+				</p>
+			</div>
 			<GestureImageStatic imgLetter={letter} imgUrl={imgUrl} />
 			<LargeButton
 				text="

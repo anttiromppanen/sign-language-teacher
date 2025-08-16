@@ -6,7 +6,7 @@ function Appbar() {
 	return (
 		<div
 			className={`
-			py-4 px-4 lg:px-6 flex justify-between w-full items-center bg-[#8a4fff]/10 backdrop-blur-lg text-text-primary max-w-[1500px] mx-auto rounded-b-xl sm:px-8
+			px-4 h-16 lg:px-6 flex justify-between w-full items-center bg-[#8a4fff]/10 backdrop-blur-lg text-text-primary max-w-[1500px] mx-auto rounded-b-xl sm:px-8
 			`}
 		>
 			<Link href="/" className="">

@@ -94,13 +94,13 @@ function Training() {
 						key="animateWebcam"
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1, transition: { duration: 1, delay: 1 } }}
-						className="absolute left-0 top-0 -z-10"
+						className="absolute left-0 top-0 -z-10 overflow-hidden"
 					>
 						<div className="bg-white/20 backdrop-blur-sm absolute left-10 bottom-10 z-10 text-7xl px-4 py-2 rounded-xl opacity-90 font-oxanium font-bold">
 							{imageObjects[imgIndex][0]}
 						</div>
 						{correctGesture && (
-							<div className="absolute text-9xl text-white left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+							<div className="absolute text-9xl text-white left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 scale-50 md:scale-100">
 								<CountdownCircleTimer
 									isPlaying={correctGesture}
 									duration={3}
