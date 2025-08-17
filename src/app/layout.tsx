@@ -19,11 +19,12 @@ const oxanium = Oxanium({
 });
 
 export const metadata: Metadata = {
-	title: "Sign Language Teacher - Signer",
+	title: "Sign Language Teacher App - Signer",
 	description:
-		"Learn American Sign Language (ASL) online for free. Practice the ASL alphabet and basics with our AI-powered teacher that gives real-time feedback.",
+		"Learn American Sign Language (ASL) online for free. Practice the ASL alphabet and basics with our AI-powered sign language app that gives real-time feedback.",
 	keywords: [
 		"Sign Language",
+		"Sign Language App",
 		"Sign Language teacher",
 		"Sign language alphabet",
 		"American Sign Language",

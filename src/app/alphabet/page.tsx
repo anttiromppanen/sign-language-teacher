@@ -61,6 +61,22 @@ function Alphabet() {
 							mainEntity: [
 								{
 									"@type": "Question",
+									name: "What is the difference between International Sign language and American Sign Language?",
+									acceptedAnswer: {
+										"@type": "Answer",
+										text: `
+											International Sign (IS) is a simplified sign language used at
+											international events to help deaf people from different countries
+											communicate. It isn’t a full language, but more of a pidgin that
+											combines widely understood signs and gestures. American Sign
+											Language (ASL), on the other hand, is a complete natural language
+											with its own grammar and vocabulary, used primarily in the United
+											States and parts of Canada.
+										`,
+									},
+								},
+								{
+									"@type": "Question",
 									name: "What is the ASL alphabet used for?",
 									acceptedAnswer: {
 										"@type": "Answer",

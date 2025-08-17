@@ -5,6 +5,22 @@ function FaqSection() {
 			<div className="flex flex-col gap-y-2 lg:grid lg:grid-cols-2 lg:gap-10 lg:[&>article]:pr-10 lg:[&>article>h3]:text-xl lg:[&>article>p]:text-lg">
 				<article>
 					<h3 className="font-semibold mt-2">
+						What is the difference between International Sign language and
+						American Sign Language?
+					</h3>
+					<p>
+						International Sign (IS) is a simplified sign language used at
+						international events to help deaf people from different countries
+						communicate. It isn’t a full language, but more of a pidgin that
+						combines widely understood signs and gestures. American Sign
+						Language (ASL), on the other hand, is a complete natural language
+						with its own grammar and vocabulary, used primarily in the United
+						States and parts of Canada.
+					</p>
+				</article>
+
+				<article>
+					<h3 className="font-semibold mt-2">
 						What is the ASL alphabet used for?
 					</h3>
 					<p>

@@ -20,25 +20,28 @@ function FirstSection() {
 			<div className="w-full items-center justify-center flex h-[calc(100vh-64px)] gap-x-4">
 				<div className="flex flex-col justify-center md:items-center gap-y-8 rounded-xl text-center">
 					<h1 className="text-5xl md:text-7xl lg:text-8xl font-oxanium sticky top-0 text-white rounded-lg font-semibold">
-						{!showTyped && "Learn American Sign Language (ASL) Online for Free"}
+						{!showTyped &&
+							"Learn ASL Online for Free — Try Our AI Sign Language App"}
 						{showTyped && (
 							<ReactTyped
-								strings={["Learn American Sign Language (ASL) Online for Free"]}
+								strings={[
+									"Learn ASL Online for Free — Try Our AI Sign Language App",
+								]}
 								typeSpeed={100}
 								startDelay={0}
 							/>
 						)}
 					</h1>
 					<div className="text-center md:text-left md:max-w-[600px] xl:max-w-[1000px]">
-						<motion.p className="font-source_sans sm:text-xl text-text-primary md:text-2xl">
+						<p className="font-source_sans sm:text-xl text-text-primary md:text-2xl text-center">
 							Learn the American Sign Language (ASL) alphabet and basics online
-							for free with our interactive tool. Our AI-powered sign language
-							teacher recognizes your hand gestures in real time, providing
-							instant feedback to help you improve accuracy and confidence.
-							Whether you’re a complete beginner or practicing to sharpen your
-							skills, you can start learning ASL anytime, anywhere — all you
-							need is your device’s camera.
-						</motion.p>
+							for free with our interactive sign language learning tool. Our
+							AI-powered sign language teacher recognizes your hand gestures in
+							real time, providing instant feedback to help you improve accuracy
+							and confidence. Whether you’re a complete beginner or practicing
+							to sharpen your skills, you can start learning ASL anytime,
+							anywhere — all you need is your device’s camera.
+						</p>
 					</div>
 					<div className="py-4 px-6">
 						<Link
