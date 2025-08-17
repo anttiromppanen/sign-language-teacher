@@ -15,12 +15,12 @@ export const metadata: Metadata = {
 function Alphabet() {
 	return (
 		<Container>
-			<main className="flex flex-col gap-y-10 items-center justify-center py-10 text-text-secondary">
-				<section>
-					<h1 className="text-4xl text-foreground mb-2 font-alice md:text-7xl">
+			<main className="flex flex-col gap-y-16 justify-center py-10 text-text-secondary lg:gap-y-36">
+				<section className="lg:px-8 flex flex-col justify-center w-full md:text-center lg:gap-y-4 lg:mt-10">
+					<h1 className="text-4xl text-foreground mb-2 font-alice md:text-6xl">
 						The American Sign Language (ASL) alphabet
 					</h1>
-					<p className="">
+					<p className="lg:text-xl max-w-[800px] mx-auto">
 						The American Sign Language (ASL) alphabet, also known as the
 						fingerspelling alphabet, is a set of hand signs that represent each
 						letter of the English alphabet. Learning these signs is one of the
@@ -30,15 +30,17 @@ function Alphabet() {
 				</section>
 
 				{/* Slideshow of A–Z with descriptive alt text */}
-				<section className="flex flex-col gap-y-4">
-					<h2 className="text-2xl font-semibold">
-						ASL Alphabet Hand Gesture Examples
-					</h2>
-					<p className="mb-2">
-						Explore the A–Z slideshow below to see how each letter in the ASL
-						alphabet is signed. Practice slowly, focusing on the shape and
-						position of your hand.
-					</p>
+				<section className="flex flex-col gap-y-8 xl:grid xl:grid-cols-[1fr_700px] 2xl:grid-cols-[1fr_840px] md:items-center">
+					<div className="flex flex-col gap-y-2 md:text-center xl:text-left lg:gap-y-8 lg:pr-20">
+						<h2 className="text-2xl font-semibold lg:text-3xl">
+							ASL Alphabet Hand Gesture Examples
+						</h2>
+						<p className="mb-2 lg:text-lg">
+							Explore the A–Z slideshow to see how each letter in the ASL
+							alphabet is signed. Practice slowly, focusing on the shape and
+							position of your hand.
+						</p>
+					</div>
 					<GestureSlideshow />
 				</section>
 

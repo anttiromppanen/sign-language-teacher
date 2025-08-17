@@ -20,11 +20,7 @@ function FirstSection() {
 			<div className="w-full items-center justify-center flex h-[calc(100vh-64px)] gap-x-4">
 				<div className="flex flex-col justify-center md:items-center gap-y-8 rounded-xl text-center">
 					<h1 className="text-5xl md:text-7xl lg:text-8xl font-oxanium sticky top-0 text-white rounded-lg font-semibold">
-						{!showTyped && (
-							<h1 className="block">
-								Learn American Sign Language (ASL) Online for Free
-							</h1>
-						)}
+						{!showTyped && "Learn American Sign Language (ASL) Online for Free"}
 						{showTyped && (
 							<ReactTyped
 								strings={["Learn American Sign Language (ASL) Online for Free"]}
