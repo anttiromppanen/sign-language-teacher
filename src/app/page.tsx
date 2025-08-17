@@ -90,23 +90,23 @@ export default function Home() {
 					__html: JSON.stringify({
 						"@context": "https://schema.org",
 						"@type": "SoftwareApplication",
-						name: "Signer - AI Sign Language Teacher",
+						name: "aslakki",
 						applicationCategory: "EducationalApplication",
 						operatingSystem: "Web", // since it's browser-based
 						description:
-							"Free AI-powered web application to learn American Sign Language (ASL). Practice the ASL alphabet with real-time gesture recognition and instant feedback.",
+							"AI Sign Language Learning App — Learn American Sign Language (ASL) online for free with interactive lessons and real-time feedback.",
 						offers: {
 							"@type": "Offer",
 							price: "0",
 							priceCurrency: "EUR",
 							availability: "https://schema.org/InStock",
-							url: "https://sign-language-teacher.vercel.app/",
+							url: "https://aslakki.vercel.app/",
 						},
-						url: "https://sign-language-teacher.vercel.app/",
+						url: "https://aslakki.vercel.app/",
 						author: {
 							"@type": "Organization",
-							name: "Signer - AI Sign Language Teacher",
-							url: "https://sign-language-teacher.vercel.app/",
+							name: "aslakki",
+							url: "https://aslakki.vercel.app/",
 						},
 					}),
 				}}

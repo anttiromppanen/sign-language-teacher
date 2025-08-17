@@ -7,7 +7,7 @@ import FaqSection from "./FaqSection";
 import ListSection from "./ListSection";
 
 export const metadata: Metadata = {
-	title: "The American Sign Language (ASL) Alphabet - Signer",
+	title: "Learn The American Sign Language (ASL) Alphabet - aslakki",
 	description:
 		"Learn the American Sign Language (ASL) alphabet online with our interactive AI tool. Practice signing letters in real time using your camera and get instant feedback to improve your hand gestures.",
 };
