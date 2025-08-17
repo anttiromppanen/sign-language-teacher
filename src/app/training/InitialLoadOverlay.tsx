@@ -117,17 +117,21 @@ function InitialLoadOverlay({
 	}, [activeStep, setHandRecognizerState]);
 
 	return (
-		<div className="flex flex-col justify-between pt-8 pb-4 w-full min-h-[calc(100vh-64px)] xl:grid xl:grid-cols-[600px_1fr] items-center gap-x-10 xl:gap-y-0">
+		<div className="flex flex-col justify-between gap-y-16 pt-8 pb-4 w-full min-h-[calc(100vh-64px)] xl:grid xl:grid-cols-[600px_1fr] items-center gap-x-10 xl:gap-y-0">
 			{/* FIRST COLUMN */}
 			<div className="">
-				<h2 className="text-highlight text-xl md:text-3xl">Training Mode</h2>
+				<h2 className="text-highlight text-xl md:text-3xl">
+					Practice the American Sign Language (ASL) Alphabet Online
+				</h2>
 				<h1 className="text-text-primary text-4xl md:text-7xl lg:text-8xl xl:text-7xl">
-					Learn The Sign Language Alphabet In Real Time
+					Interactive AI Sign Language Training – Learn the ASL Alphabet in Real
+					Time
 				</h1>
 				<p className="text-base md:text-2xl xl:text-xl text-text-secondary">
-					Use your device's camera to practice signing each letter of the
-					alphabet while our AI detects your hand gestures, gives instant
-					feedback, and helps you improve with every move.
+					Practice the American Sign Language (ASL) alphabet using your device’s
+					camera. Our AI-powered sign language recognition tool detects your
+					hand gestures in real time, gives instant feedback, and helps you
+					improve your signing skills with every move.
 				</p>
 			</div>
 			{/* SECOND COLUMN */}

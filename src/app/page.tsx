@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import Script from "next/script";
+import { useEffect, useId, useState } from "react";
 import { ReactTyped } from "react-typed";
 import Container from "@/components/Container";
 
@@ -17,24 +18,30 @@ function FirstSection() {
 	return (
 		<Container>
 			<div className="w-full items-center justify-center flex h-[calc(100vh-64px)] gap-x-4">
-				<div className="flex flex-col justify-center md:items-center gap-y-8 text-center rounded-xl">
-					<h1 className="text-7xl md:text-9xl font-oxanium sticky top-0 text-white rounded-lg font-semibold">
-						{!showTyped && <span className="block">Hands-On AI Learning</span>}
+				<div className="flex flex-col justify-center md:items-center gap-y-8 rounded-xl text-center">
+					<h1 className="text-5xl md:text-7xl lg:text-8xl font-oxanium sticky top-0 text-white rounded-lg font-semibold">
+						{!showTyped && (
+							<h1 className="block">
+								Learn American Sign Language (ASL) Online for Free
+							</h1>
+						)}
 						{showTyped && (
 							<ReactTyped
-								strings={["Hands-On AI Learning"]}
-								typeSpeed={90}
+								strings={["Learn American Sign Language (ASL) Online for Free"]}
+								typeSpeed={100}
 								startDelay={0}
 							/>
 						)}
 					</h1>
 					<div className="text-center md:text-left md:max-w-[600px] xl:max-w-[1000px]">
-						<motion.p className="font-source_sans text-lg sm:text-xl text-text-primary md:text-2xl">
-							Turn your camera into a personal sign language tutor. Our
-							AI-powered model recognizes your gestures in real time, giving
-							instant feedback to help you learn faster and more accurately.
-							Whether you&lsquo;re a beginner or looking to sharpen your skills,
-							practice anywhere, anytime.
+						<motion.p className="font-source_sans sm:text-xl text-text-primary md:text-2xl">
+							Learn the American Sign Language (ASL) alphabet and basics online
+							for free with our interactive tool. Our AI-powered sign language
+							teacher recognizes your hand gestures in real time, providing
+							instant feedback to help you improve accuracy and confidence.
+							Whether you’re a complete beginner or practicing to sharpen your
+							skills, you can start learning ASL anytime, anywhere — all you
+							need is your device’s camera.
 						</motion.p>
 					</div>
 					<div className="py-4 px-6">
@@ -42,7 +49,7 @@ function FirstSection() {
 							href="/training"
 							className="font-source_sans py-4 px-6 rounded-xl bg-highlight text-xl text-white"
 						>
-							Start training
+							Start ASL training
 						</Link>
 					</div>
 				</div>
@@ -53,7 +60,7 @@ function FirstSection() {
 
 export default function Home() {
 	return (
-		<div>
+		<div className="min-h-[calc(100vh-64px)]">
 			<div className="">
 				<motion.video
 					initial={{ filter: "blur(5px)", scale: 1.1 }}
@@ -74,6 +81,37 @@ export default function Home() {
 				<div className="w-full h-full bg-background opacity-80 bg-radial-gradient absolute top-0 left-0 -z-10" />
 			</div>
 			<FirstSection />
+
+			{/* JSON-LD structured data */}
+			<Script
+				id={`software-schema-${useId()}`}
+				type="application/ld+json"
+				// biome-ignore lint/security/noDangerouslySetInnerHtml: skip
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "SoftwareApplication",
+						name: "Signer - AI Sign Language Teacher",
+						applicationCategory: "EducationalApplication",
+						operatingSystem: "Web", // since it's browser-based
+						description:
+							"Free AI-powered web application to learn American Sign Language (ASL). Practice the ASL alphabet with real-time gesture recognition and instant feedback.",
+						offers: {
+							"@type": "Offer",
+							price: "0",
+							priceCurrency: "EUR",
+							availability: "https://schema.org/InStock",
+							url: "https://sign-language-teacher.vercel.app/",
+						},
+						url: "https://sign-language-teacher.vercel.app/",
+						author: {
+							"@type": "Organization",
+							name: "Signer - AI Sign Language Teacher",
+							url: "https://sign-language-teacher.vercel.app/",
+						},
+					}),
+				}}
+			/>
 		</div>
 	);
 }

@@ -18,7 +18,7 @@ const styles = {
 	letter:
 		"text-6xl sm:text-8xl absolute z-10 top-2 left-5 sm:top-5 sm:left-10 text-[rgba(255,255,255,0.6)] select-none",
 	image:
-		"md:w-[450px] md:h-[377.5px] lg:w-[600px] lg:h-[450px] object-cover border-8 border-foreground grayscale invert opacity-60 contrast-200 brightness-125 rounded-xl",
+		"md:w-[450px] md:h-[377.5px] lg:w-[600px] lg:h-[450px] object-cover invert opacity-60 contrast-200 brightness-125 rounded-xl",
 	imageSizes:
 		"(max-width: 640px) 25vw, (min-width: 641px) 50vw, (min-width: 1024px) 450px, 600px",
 };
@@ -30,6 +30,8 @@ export function GestureImageAnimated({
 	animationVariants,
 	transition,
 }: GestureImageAnimatedProps) {
+	const letter = imageObjects[imgIndex][0];
+
 	return (
 		<div className="relative rounded-xl">
 			<motion.h2
@@ -47,7 +49,7 @@ export function GestureImageAnimated({
 			<Image
 				key={imageObjects[imgIndex][1]}
 				src={imageObjects[imgIndex][1]}
-				alt="gesture"
+				alt={`ASL alphabet letter ${letter} hand gesture`}
 				width={900}
 				height={675}
 				sizes={styles.imageSizes}
@@ -68,7 +70,7 @@ export function GestureImageStatic({
 			<h2 className={styles.letter}>{imgLetter}</h2>
 			<Image
 				src={imgUrl}
-				alt="gesture"
+				alt={`ASL alphabet letter ${imgLetter} hand gesture`}
 				width={900}
 				height={675}
 				sizes={styles.imageSizes}

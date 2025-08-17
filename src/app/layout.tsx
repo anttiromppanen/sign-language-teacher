@@ -19,7 +19,20 @@ const oxanium = Oxanium({
 
 export const metadata: Metadata = {
 	title: "Sign Language Teacher - Signer",
-	description: "Learn the alphabet in American Sign Language",
+	description:
+		"Learn American Sign Language (ASL) online for free. Practice the ASL alphabet and basics with our AI-powered teacher that gives real-time feedback.",
+	keywords: [
+		"Sign Language",
+		"Sign Language teacher",
+		"Sign language alphabet",
+		"American Sign Language",
+		"ASL",
+		"Learn ASL",
+		"Free ASL",
+		"ASL online",
+		"ASL tutor",
+		"ASL teacher",
+	],
 };
 
 export default function RootLayout({

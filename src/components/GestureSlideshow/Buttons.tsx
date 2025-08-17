@@ -13,8 +13,9 @@ function SlideshowButton({
 			type="button"
 			onClick={handleClick}
 			className="
-      rounded-full size-20 border-text-secondary border-4 text-text-secondary text-xl focus-within:outline-2 flex items-center justify-center 
+      size-12 bg-low-contrast text-text-secondary text-xl focus-within:outline-2 flex items-center justify-center 
       hover:bg-background hover:border-text-primary hover:text-text-primary select-none focus-visible:-border--secondary-purple focus-visible:outline-0
+			rounded-full md:!size-20
 			"
 		>
 			{children}
@@ -42,7 +43,7 @@ function Buttons({ handlePrevImg, handleNextImg }: ButtonsProps) {
 	}, [handleKeyDown]);
 
 	return (
-		<div className="flex justify-around md:justify-between w-full md:absolute mt-8 md:mt-0 md:left-0 md:top-1/2 md:-translate-y-1/2">
+		<div className="flex justify-between z-10 px-4 w-full absolute left-0 top-1/2 -translate-y-1/2 md:px-0">
 			<SlideshowButton handleClick={handlePrevImg}>
 				<ChevronLeftIcon className="size-8" />
 			</SlideshowButton>
