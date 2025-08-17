@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Oxanium, Source_Sans_3 } from "next/font/google";
 import Appbar from "@/components/Appbar/page";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const source_sans = Source_Sans_3({
 	subsets: ["latin"],
@@ -47,6 +48,7 @@ export default function RootLayout({
 			>
 				<Appbar />
 				{children}
+				<Analytics />
 			</body>
 		</html>
 	);
